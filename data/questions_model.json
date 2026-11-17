@@ -1,0 +1,2610 @@
+[
+ {
+  "id": "anat_m4070",
+  "source_id": 4070,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "颅骨08",
+  "model_name": "颅骨（水平切面）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第五节 颅骨及其连结",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4069",
+  "source_id": 4069,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "颅骨07",
+  "model_name": "颅骨（水平切面）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第五节 颅骨及其连结",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4068",
+  "source_id": 4068,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "颅骨06",
+  "model_name": "颅骨（水平切面）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第五节 颅骨及其连结",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4067",
+  "source_id": 4067,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "颅骨05",
+  "model_name": "颅的侧面观",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第五节 颅骨及其连结",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4066",
+  "source_id": 4066,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "颅骨04",
+  "model_name": "颅的侧面观",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第五节 颅骨及其连结",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4065",
+  "source_id": 4065,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "颅骨03",
+  "model_name": "鼻腔外侧壁",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第五节 颅骨及其连结",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4064",
+  "source_id": 4064,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "颅骨19",
+  "model_name": "下颌骨（外侧面）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第五节 颅骨及其连结",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4063",
+  "source_id": 4063,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "颅骨18",
+  "model_name": "下颌骨（外侧面）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第五节 颅骨及其连结",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4062",
+  "source_id": 4062,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "关节17",
+  "model_name": "颅的前面观",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第五节 颅骨及其连结",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4061",
+  "source_id": 4061,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "关节16",
+  "model_name": "髋关节（冠状切面）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第四节 下肢骨及其连结",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4060",
+  "source_id": 4060,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "关节15",
+  "model_name": "膝关节（矢状切面）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第四节 下肢骨及其连结",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4059",
+  "source_id": 4059,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "关节14",
+  "model_name": "膝关节（矢状切面）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第四节 下肢骨及其连结",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4058",
+  "source_id": 4058,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "关节13",
+  "model_name": "骶髂关节与骨盆韧带（前面）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第四节 下肢骨及其连结",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4057",
+  "source_id": 4057,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "关节12",
+  "model_name": "膝关节（韧带和软骨）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第四节 下肢骨及其连结",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4056",
+  "source_id": 4056,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "关节11",
+  "model_name": "膝关节（韧带和软骨）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第四节 下肢骨及其连结",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4055",
+  "source_id": 4055,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "关节10",
+  "model_name": "膝关节（打开关节囊）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第四节 下肢骨及其连结",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4054",
+  "source_id": 4054,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "关节09",
+  "model_name": "膝关节（前面）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第四节 下肢骨及其连结",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4053",
+  "source_id": 4053,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "关节08",
+  "model_name": "膝关节（前面）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第四节 下肢骨及其连结",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4052",
+  "source_id": 4052,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "关节07",
+  "model_name": "膝关节（韧带和软骨）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第四节 下肢骨及其连结",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4051",
+  "source_id": 4051,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "关节06",
+  "model_name": "肘关节（打开关节囊）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第三节 上肢骨及其连结",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4050",
+  "source_id": 4050,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "关节05",
+  "model_name": "肩关节（前外侧面）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第三节 上肢骨及其连结",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4049",
+  "source_id": 4049,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "关节04",
+  "model_name": "椎骨间的连结",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（一）脊柱",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4048",
+  "source_id": 4048,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "关节03",
+  "model_name": "椎间盘和关节突关节",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第二节 躯干骨及其连结",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4047",
+  "source_id": 4047,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "关节02",
+  "model_name": "直连结分类-纤维连结（缝）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "二、骨连结总论",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4046",
+  "source_id": 4046,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "关节01",
+  "model_name": "直连结分类-纤维连结（韧带连结）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "二、骨连结总论",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4045",
+  "source_id": 4045,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脊神经17",
+  "model_name": "颈丛皮支",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "一、颈丛",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4044",
+  "source_id": 4044,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脊神经16",
+  "model_name": "颈丛皮支",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "一、颈丛",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4043",
+  "source_id": 4043,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脊神经15",
+  "model_name": "颈丛皮支",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "一、颈丛",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4042",
+  "source_id": 4042,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脊神经14",
+  "model_name": "颈丛皮支",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "一、颈丛",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4041",
+  "source_id": 4041,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脊神经13",
+  "model_name": "膈神经",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "一、颈丛",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4040",
+  "source_id": 4040,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脊神经12",
+  "model_name": "膈神经",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "一、颈丛",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4039",
+  "source_id": 4039,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脑神经20",
+  "model_name": "头颈浅层结构",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（二）面神经管外的分支",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4038",
+  "source_id": 4038,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脑神经19",
+  "model_name": "头颈浅层结构",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（二）面神经管外的分支",
+   "nandu": 2,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4037",
+  "source_id": 4037,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脑神经18",
+  "model_name": "头颈浅层结构",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（二）面神经管外的分支",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4036",
+  "source_id": 4036,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脑神经17",
+  "model_name": "头颈浅层结构",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（二）面神经管外的分支",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4035",
+  "source_id": 4035,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脑神经16",
+  "model_name": "迷走神经胃部分支",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "十、迷走神经",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4034",
+  "source_id": 4034,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脑神经15",
+  "model_name": "迷走神经胃部分支",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "十、迷走神经",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4033",
+  "source_id": 4033,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脑神经14",
+  "model_name": "三叉神经",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "五、三叉神经",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4032",
+  "source_id": 4032,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脑神经13",
+  "model_name": "三叉神经",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "五、三叉神经",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4031",
+  "source_id": 4031,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脑神经12",
+  "model_name": "三叉神经",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "五、三叉神经",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4030",
+  "source_id": 4030,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脑神经11",
+  "model_name": "三叉神经",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "五、三叉神经",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4029",
+  "source_id": 4029,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脑神经10",
+  "model_name": "三叉神经",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "五、三叉神经",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4028",
+  "source_id": 4028,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脑神经09",
+  "model_name": "三叉神经",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "五、三叉神经",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4027",
+  "source_id": 4027,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脑神经08",
+  "model_name": "后四对脑神经走行",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第二节 脑神经",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4026",
+  "source_id": 4026,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脑神经07",
+  "model_name": "后四对脑神经走行",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第二节 脑神经",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4025",
+  "source_id": 4025,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脑神经06",
+  "model_name": "后四对脑神经走行",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第二节 脑神经",
+   "nandu": 5,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4024",
+  "source_id": 4024,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脑神经05",
+  "model_name": "后四对脑神经走行",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "九、舌咽神经",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4023",
+  "source_id": 4023,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "静脉07",
+  "model_name": "下腔静脉及其属支",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（二）下腔静脉系",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4022",
+  "source_id": 4022,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "静脉06",
+  "model_name": "下腔静脉及其属支",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（二）下腔静脉系",
+   "nandu": 2,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4021",
+  "source_id": 4021,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "静脉05",
+  "model_name": "肝门静脉及属支",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（二）下腔静脉系",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4020",
+  "source_id": 4020,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "视器",
+  "stem": "眼外肌03",
+  "model_name": "眼球外肌",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "四、眼球外肌",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4019",
+  "source_id": 4019,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "视器",
+  "stem": "眼外肌02",
+  "model_name": "眼球外肌",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "四、眼球外肌",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4018",
+  "source_id": 4018,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "视器",
+  "stem": "眼外肌01",
+  "model_name": "眼球外肌",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "四、眼球外肌",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4017",
+  "source_id": 4017,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脑神经04",
+  "model_name": "舌咽神经及其分支",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "九、舌咽神经",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4016",
+  "source_id": 4016,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脑神经06",
+  "model_name": "眶内神经",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第二节 脑神经",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4015",
+  "source_id": 4015,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脑神经05",
+  "model_name": "眶内神经",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第二节 脑神经",
+   "nandu": 1,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4014",
+  "source_id": 4014,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脑神经04",
+  "model_name": "眶内神经",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第二节 脑神经",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4013",
+  "source_id": 4013,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脊神经11",
+  "model_name": "迷走神经的分布",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第二节 脑神经",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4012",
+  "source_id": 4012,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脑神经03",
+  "model_name": "三叉神经",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（一）眼神经",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4011",
+  "source_id": 4011,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脑神经02",
+  "model_name": "三叉神经（外面观）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "五、三叉神经",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4010",
+  "source_id": 4010,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脑神经01",
+  "model_name": "三叉神经",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第二节 脑神经",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4009",
+  "source_id": 4009,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "静脉03",
+  "model_name": "上腔静脉及其属支",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（一）上腔静脉系",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4008",
+  "source_id": 4008,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "静脉02",
+  "model_name": "上腔静脉及其属支",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（一）上腔静脉系",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4007",
+  "source_id": 4007,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "静脉01",
+  "model_name": "上腔静脉及其属支",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（一）上腔静脉系",
+   "nandu": 1,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4006",
+  "source_id": 4006,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脊神经10",
+  "model_name": "腰丛及骶丛",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第一节 脊神经",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4005",
+  "source_id": 4005,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脊神经09",
+  "model_name": "腰丛及骶丛",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第一节 脊神经",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4004",
+  "source_id": 4004,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脊神经08",
+  "model_name": "下肢神经",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第一节 脊神经",
+   "nandu": 1,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4003",
+  "source_id": 4003,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脊神经07",
+  "model_name": "下肢神经",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第一节 脊神经",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4002",
+  "source_id": 4002,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脊神经06",
+  "model_name": "上肢神经（深层）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第一节 脊神经",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4001",
+  "source_id": 4001,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脊神经05",
+  "model_name": "上肢神经（深层）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第一节 脊神经",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m4000",
+  "source_id": 4000,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脊神经04",
+  "model_name": "上肢神经",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第一节 脊神经",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3999",
+  "source_id": 3999,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脊神经03",
+  "model_name": "上肢神经",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第一节 脊神经",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3998",
+  "source_id": 3998,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脊神经02",
+  "model_name": "臂丛及分支",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第一节 脊神经",
+   "nandu": 5,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3997",
+  "source_id": 3997,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脊神经01",
+  "model_name": "臂丛及分支",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第一节 脊神经",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3996",
+  "source_id": 3996,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "动脉25",
+  "model_name": "胸主动脉及其分支",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（四）胸部的动脉",
+   "nandu": 2,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3995",
+  "source_id": 3995,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "动脉24",
+  "model_name": "小腿和足背的动脉",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（七）下肢的动脉",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3994",
+  "source_id": 3994,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "动脉23",
+  "model_name": "小腿和足背的动脉",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（七）下肢的动脉",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3993",
+  "source_id": 3993,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "动脉22",
+  "model_name": "股动脉及其分支",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（七）下肢的动脉",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3992",
+  "source_id": 3992,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "动脉21",
+  "model_name": "女性内生殖器的动脉（离体）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（六）盆部的动脉",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3991",
+  "source_id": 3991,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "动脉20",
+  "model_name": "腹腔干及其分支",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（五）腹部的动脉",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3990",
+  "source_id": 3990,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "动脉19",
+  "model_name": "腹腔干及其分支",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（五）腹部的动脉",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3989",
+  "source_id": 3989,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "动脉18",
+  "model_name": "肠系膜上动脉及其分支",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（五）腹部的动脉",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3988",
+  "source_id": 3988,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "动脉17",
+  "model_name": "肠系膜上动脉及其分支",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（五）腹部的动脉",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3987",
+  "source_id": 3987,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "动脉16",
+  "model_name": "肠系膜上动脉及其分支",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（五）腹部的动脉",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3986",
+  "source_id": 3986,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "动脉15",
+  "model_name": "腹腔干及其分支",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（五）腹部的动脉",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3985",
+  "source_id": 3985,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "动脉14",
+  "model_name": "腹主动脉及其分支",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（五）腹部的动脉",
+   "nandu": 2,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3984",
+  "source_id": 3984,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "动脉13",
+  "model_name": "前臂的动脉",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（三）上肢的动脉",
+   "nandu": 2,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3983",
+  "source_id": 3983,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "动脉12",
+  "model_name": "前臂的动脉",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（三）上肢的动脉",
+   "nandu": 2,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3982",
+  "source_id": 3982,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "动脉11",
+  "model_name": "肱动脉及其分支",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（三）上肢的动脉",
+   "nandu": 2,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3981",
+  "source_id": 3981,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "动脉10",
+  "model_name": "颈部的动脉",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（二）头颈部的动脉",
+   "nandu": 2,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3980",
+  "source_id": 3980,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "动脉09",
+  "model_name": "颈部的动脉",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（二）头颈部的动脉",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3979",
+  "source_id": 3979,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "动脉08",
+  "model_name": "颈部的动脉",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（二）头颈部的动脉",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3978",
+  "source_id": 3978,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "动脉07",
+  "model_name": "颈部的动脉",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（二）头颈部的动脉",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3977",
+  "source_id": 3977,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "动脉06",
+  "model_name": "颈部的动脉",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（二）头颈部的动脉",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3976",
+  "source_id": 3976,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "动脉05",
+  "model_name": "颈部的动脉",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（二）头颈部的动脉",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3975",
+  "source_id": 3975,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "动脉04",
+  "model_name": "颈部的动脉",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（二）头颈部的动脉",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3974",
+  "source_id": 3974,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "动脉03",
+  "model_name": "心的外形和血管（隔面）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "一、心的位置和外形",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3973",
+  "source_id": 3973,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "动脉02",
+  "model_name": "心的外形和血管（隔面）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "一、心的位置和外形",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3972",
+  "source_id": 3972,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "动脉01",
+  "model_name": "心的外形和血管（隔面）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "一、心的位置和外形",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3971",
+  "source_id": 3971,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "心脏10",
+  "model_name": "房间隔和室间隔",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（三）房间隔和室间隔",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3970",
+  "source_id": 3970,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "心脏09",
+  "model_name": "左心室（流出道）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "二、心腔",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3969",
+  "source_id": 3969,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "心脏08",
+  "model_name": "右心房和右心室",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "二、心腔",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3968",
+  "source_id": 3968,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "心脏07",
+  "model_name": "左心房和左心室",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "二、心腔",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3967",
+  "source_id": 3967,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "心脏06",
+  "model_name": "心的外形和血管（胸肋面）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "一、心的位置和外形",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3966",
+  "source_id": 3966,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "心脏05",
+  "model_name": "心脏的位置",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "一、心的位置和外形",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3965",
+  "source_id": 3965,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "心脏04",
+  "model_name": "心的外形和血管（胸肋面）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "一、心的位置和外形",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3964",
+  "source_id": 3964,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "心脏03",
+  "model_name": "心的外形和血管（隔面）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "一、心的位置和外形",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3962",
+  "source_id": 3962,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "心血管系统",
+  "stem": "心脏01",
+  "model_name": "心的外形和血管（隔面）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "一、心的位置和外形",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3961",
+  "source_id": 3961,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "肌学",
+  "stem": "肌08",
+  "model_name": "胸上肢肌",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（一）胸上肢肌",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3960",
+  "source_id": 3960,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "肌学",
+  "stem": "肌07",
+  "model_name": "前臂肌群1",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（一）前群",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3959",
+  "source_id": 3959,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "肌学",
+  "stem": "肌06",
+  "model_name": "翼内肌和翼外肌",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "二、咀嚼肌",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3958",
+  "source_id": 3958,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "肌学",
+  "stem": "肌05",
+  "model_name": "颈浅肌",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "一、颈浅肌群",
+   "nandu": 2,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3957",
+  "source_id": 3957,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "肌学",
+  "stem": "肌04",
+  "model_name": "颈浅肌",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "一、颈浅肌群",
+   "nandu": 2,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3956",
+  "source_id": 3956,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "生殖系统",
+  "stem": "女生01",
+  "model_name": "女性内生殖器",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "一、女性内生殖器",
+   "nandu": 2,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3955",
+  "source_id": 3955,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "生殖系统",
+  "stem": "男生05",
+  "model_name": "膀胱、前列腺及精囊腺",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（三）输精管、射精管和精索",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3954",
+  "source_id": 3954,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "生殖系统",
+  "stem": "男生04",
+  "model_name": "膀胱、前列腺及精囊腺",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（三）输精管、射精管和精索",
+   "nandu": 2,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3953",
+  "source_id": 3953,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "生殖系统",
+  "stem": "男生03",
+  "model_name": "膀胱、前列腺及精囊腺",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（三）输精管、射精管和精索",
+   "nandu": 2,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3952",
+  "source_id": 3952,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "生殖系统",
+  "stem": "男生02",
+  "model_name": "膀胱、前列腺及精囊腺",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（三）输精管、射精管和精索",
+   "nandu": 2,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3951",
+  "source_id": 3951,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "泌尿系统",
+  "stem": "男生01",
+  "model_name": "肾和输尿管",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第二节 输尿管",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3950",
+  "source_id": 3950,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "泌尿系统",
+  "stem": "泌尿03",
+  "model_name": "肾和输尿管",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第二节 输尿管",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3949",
+  "source_id": 3949,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "泌尿系统",
+  "stem": "泌尿02",
+  "model_name": "肾冠状切面",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "二、肾的内部结构",
+   "nandu": 2,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3948",
+  "source_id": 3948,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "泌尿系统",
+  "stem": "泌尿01",
+  "model_name": "肾冠状切面",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第一节 肾",
+   "nandu": 2,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3947",
+  "source_id": 3947,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "消化系统",
+  "stem": "消化04",
+  "model_name": "盲肠和阑尾",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（一）盲肠",
+   "nandu": 2,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3946",
+  "source_id": 3946,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "消化系统",
+  "stem": "消化03",
+  "model_name": "胃的形态和分部",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（一）胃的形态和分部",
+   "nandu": 2,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3945",
+  "source_id": 3945,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "消化系统",
+  "stem": "消化05",
+  "model_name": "胆囊及输胆管道",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（一）胆囊",
+   "nandu": 2,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3944",
+  "source_id": 3944,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "消化系统",
+  "stem": "消化01",
+  "model_name": "三大唾液腺",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（五）口腔腺",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3943",
+  "source_id": 3943,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "消化系统",
+  "stem": "呼吸01",
+  "model_name": "舌（矢状切面）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "一、口腔",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3942",
+  "source_id": 3942,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "肌学",
+  "stem": "肌03",
+  "model_name": "上肢带肌与臂肌前群",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "一、上肢带肌",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3941",
+  "source_id": 3941,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "肌学",
+  "stem": "肌02",
+  "model_name": "前锯肌与肋间肌",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（一）胸上肢肌",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3940",
+  "source_id": 3940,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "肌学",
+  "stem": "肌01",
+  "model_name": "躯干肌",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "一、背肌",
+   "nandu": 2,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3939",
+  "source_id": 3939,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "骨05",
+  "model_name": "肱骨（前面观）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（二）自由上肢骨",
+   "nandu": 2,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3938",
+  "source_id": 3938,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "骨04",
+  "model_name": "蝶骨（前面观）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（一）脑颅骨",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3937",
+  "source_id": 3937,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "骨03",
+  "model_name": "肩胛骨（前面）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（一）上肢带骨",
+   "nandu": 2,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3936",
+  "source_id": 3936,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "骨02",
+  "model_name": "颈椎",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（一）椎骨",
+   "nandu": 2,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3935",
+  "source_id": 3935,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "骨01",
+  "model_name": "肋骨（12对）-第六肋",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（三）肋",
+   "nandu": 2,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3934",
+  "source_id": 3934,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "腹膜",
+  "stem": "生殖02",
+  "model_name": "大网膜和小网膜",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第八章 腹膜",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3933",
+  "source_id": 3933,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "生殖系统",
+  "stem": "生殖01",
+  "model_name": "女性内生殖器",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第二节 女性生殖系统",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3932",
+  "source_id": 3932,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "泌尿系统",
+  "stem": "泌尿02",
+  "model_name": "膀胱外形",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第三节 膀胱",
+   "nandu": 2,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3931",
+  "source_id": 3931,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "泌尿系统",
+  "stem": "泌尿01",
+  "model_name": "男性泌尿生殖系统概观",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第六章 泌尿系统",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3930",
+  "source_id": 3930,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "呼吸系统",
+  "stem": "呼吸02",
+  "model_name": "气管、支气管与气管隆嵴",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第一节 呼吸道",
+   "nandu": 1,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3929",
+  "source_id": 3929,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "呼吸系统",
+  "stem": "呼吸01",
+  "model_name": "鼻旁窦及开口",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第一节 呼吸道",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3928",
+  "source_id": 3928,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "消化系统",
+  "stem": "消化03",
+  "model_name": "胃的形态和分部",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（一）胃的形态和分部",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3927",
+  "source_id": 3927,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "消化系统",
+  "stem": "消化02",
+  "model_name": "胆道、十二指肠、和胰",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第一节 消化管",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3926",
+  "source_id": 3926,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "消化系统",
+  "stem": "消化01",
+  "model_name": "三大唾液腺",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第一节 消化管",
+   "nandu": 2,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3925",
+  "source_id": 3925,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "颅骨02",
+  "model_name": "颅底外面观",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "一、颅骨",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3924",
+  "source_id": 3924,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "肌学",
+  "stem": "下肢肌02",
+  "model_name": "小腿肌群2",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第六节 下肢肌",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3923",
+  "source_id": 3923,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "肌学",
+  "stem": "下肢肌01",
+  "model_name": "臀肌（中层）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第六节 下肢肌",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3922",
+  "source_id": 3922,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "肌学",
+  "stem": "上肢肌02",
+  "model_name": "上肢带肌与臂肌前群",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第五节 上肢肌",
+   "nandu": 4,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3921",
+  "source_id": 3921,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "肌学",
+  "stem": "上肢肌01",
+  "model_name": "上肢带肌与臂肌前群",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第五节 上肢肌",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3920",
+  "source_id": 3920,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "肌学",
+  "stem": "躯干肌02",
+  "model_name": "膈与腹后壁肌",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第四节 躯干肌",
+   "nandu": 1,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3919",
+  "source_id": 3919,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "肌学",
+  "stem": "躯干肌01",
+  "model_name": "胸上肢肌",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第四节 躯干肌",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3918",
+  "source_id": 3918,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "胸廓01",
+  "model_name": "胸廓（前面）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（二）胸廓",
+   "nandu": 2,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3917",
+  "source_id": 3917,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "脊柱02",
+  "model_name": "椎骨间的连结",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（一）脊柱",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3916",
+  "source_id": 3916,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "脊柱01",
+  "model_name": "椎间盘和关节突关节",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（一）脊柱",
+   "nandu": 3,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3915",
+  "source_id": 3915,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "颅骨01",
+  "model_name": "颅的前面观",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（三）颅的整体观",
+   "nandu": 1,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3856",
+  "source_id": 3856,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "消化系统",
+  "stem": "标本08",
+  "model_name": "胆囊",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（一）胆囊",
+   "nandu": 1,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3855",
+  "source_id": 3855,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "消化系统",
+  "stem": "标本06",
+  "model_name": "胆道、十二指肠、和胰",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（一）十二指肠",
+   "nandu": 1,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3854",
+  "source_id": 3854,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "肌学",
+  "stem": "标本05",
+  "model_name": "翼内肌和翼外肌",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "二、咀嚼肌",
+   "nandu": 1,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3853",
+  "source_id": 3853,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "标本04",
+  "model_name": "肩胛骨（后面）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（一）上肢带骨",
+   "nandu": 1,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3852",
+  "source_id": 3852,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "标本03",
+  "model_name": "胸骨（前面）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "（二）胸骨",
+   "nandu": 1,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3851",
+  "source_id": 3851,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "骨和骨连结",
+  "stem": "标本02",
+  "model_name": "膝关节（前面）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第一章 骨和骨连结",
+   "nandu": 1,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3850",
+  "source_id": 3850,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "第一篇 运动系统",
+  "stem": "标本01",
+  "model_name": "颅骨（水平切面）",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第一篇 运动系统",
+   "nandu": 1,
+   "remark": ""
+  }
+ },
+ {
+  "id": "anat_m3837",
+  "source_id": 3837,
+  "type": "model",
+  "module": "系统解剖学",
+  "chapter": "周围神经系统",
+  "stem": "脑神经01",
+  "model_name": "脑神经及其分支",
+  "answer": [],
+  "meta": {
+   "zjid": 0,
+   "zjname": "第二节 脑神经",
+   "nandu": 1,
+   "remark": ""
+  }
+ }
+]

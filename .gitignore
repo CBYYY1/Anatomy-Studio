@@ -1,0 +1,67 @@
+# ============================================================
+#  Anatomy Studio · .gitignore
+#
+#  原则：
+#    · 个人隐私与动态记录 —— 绝不入库（API Key、做题进度、备份）
+#    · 核心资产 —— 必须入库（题库 data/questions.json、图谱 data/media/）
+#      这样维护者更新 Obsidian 笔记、重跑 build_question_bank.py 之后
+#      直接 git push，所有用户就能在软件里一键同步到新内容。
+# ============================================================
+
+# ---------- 个人隐私 ----------
+.env
+.env.*
+!.env.example
+
+data/user_config.json
+data/user_config.json.bak-*
+data/user_config.tmp
+
+# ---------- 动态学习记录 ----------
+data/user_progress.json
+data/user_progress.bak-*
+data/user_progress.broken-*.json
+data/user_progress.tmp
+
+# ---------- 题库备份（同步/批量分析时自动生成） ----------
+data/questions.bak-*.json
+data/questions.tmp
+data/questions_model.bak-*.json
+
+# ---------- 只在维护者机器上存在的旧配置 ----------
+config.json
+
+# ---------- 构建与打包产物 ----------
+# 源码运行需要先 npm run build；便携版走 Releases，不入库
+dist/
+web/dist/
+release/
+build/
+build_pyi/
+*.spec
+*.zip
+
+# ---------- 依赖与环境 ----------
+node_modules/
+web/node_modules/
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ---------- 编辑器 / 系统 ----------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+
+# 开发期临时脚本（含本机绝对路径，不随仓库发）
+_*.py
+

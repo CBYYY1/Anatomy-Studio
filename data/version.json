@@ -1,0 +1,18 @@
+{
+  "app_version": "2.1.0",
+  "app_release_notes": "首个正式版本发布：支持双轨解析、选项矩阵与考前急救队列。",
+  "release_url": "https://github.com/CBYYY1/Anatomy-Studio/releases",
+  "bank_version": "2026.11.17.2",
+  "bank_updated_at": "2026-11-17 21:23:44",
+  "bank_changelog": "更新章节笔记映射与靶向解析缓存",
+  "stats": {
+    "total_questions": 1917,
+    "matched_notes": 163,
+    "media_count": 196,
+    "choice": 1917,
+    "single": 1578,
+    "multiple": 339,
+    "with_images": 289,
+    "negation_warning": 158
+  }
+}

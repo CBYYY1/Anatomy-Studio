@@ -1,0 +1,19 @@
+{
+ "total_raw": 2080,
+ "choice": 1917,
+ "single": 1578,
+ "multiple": 339,
+ "model": 163,
+ "with_answer": 1917,
+ "with_context": 1917,
+ "with_images": 289,
+ "images_total": 469,
+ "with_option_matrix": 1830,
+ "option_cells_filled": 7669,
+ "option_cells_total": 9585,
+ "negation_warning": 158,
+ "keywords_coverage": 1890,
+ "no_match": 0,
+ "knowledge_terms": 661,
+ "dir_filtered": 12
+}

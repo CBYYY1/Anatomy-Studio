@@ -1,0 +1,556 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------- 主题系统
+   三套主题共用同一套 JSX 类名，靠 CSS 变量换色（见 tailwind.config.js 的 v()）：
+     data-theme="apple_dark"  深空暗黑（Apple Keynote，毛玻璃）
+     data-theme="oled"        纯黑 OLED（省电，卡片几乎不着色）
+     data-theme="paper"       纸质浅色（图书馆强光下最好读）
+   语义约定（重要）：
+     --white     = 卡片/面板表面色（浅色主题是白，深色主题是 #1C1C1E）
+     --ink-950   = 最高对比色（浅色=墨黑，深色=近白）：btn-primary 底色 + 发丝边框
+     --ink-900   = 正文主色（浅色=墨黑，深色=近白）
+     --ink-500   = 最淡的辅助色（三套主题都接近 #8E8E93）
+     --scrim     = 遮罩色（灯箱/缩略图蒙层，恒为黑）
+   ---------------------------------------------------------------- */
+
+@layer base {
+  :root {
+    --safe-top: env(safe-area-inset-top, 0px);
+    --stem-lg: 19px;
+    --stem-sm: 14px;
+    color-scheme: light;
+  }
+
+  /* ---------- 纸质浅色（默认兜底，与旧版完全一致） ---------- */
+  :root,
+  [data-theme="paper"] {
+    --bg: 245 245 247;
+    --white: 255 255 255;
+    --black: 0 0 0;
+    --scrim: 29 29 31;
+    --ink-950: 29 29 31;
+    --ink-900: 29 29 31;
+    --ink-850: 44 44 46;
+    --ink-800: 58 58 60;
+    --ink-750: 72 72 74;
+    --ink-700: 84 84 86;
+    --ink-600: 110 110 115;
+    --ink-500: 142 142 147;
+    --apple-green: 36 138 61;
+    --apple-red: 215 0 21;
+    --apple-yellow: 178 80 0;
+    --apple-blue: 0 113 227;
+    --apple-teal: 0 135 168;
+    --apple-purple: 142 68 208;
+    --apple-orange: 201 52 0;
+    --shadow-bento: 0 1px 2px rgba(0, 0, 0, 0.04), 0 10px 30px -14px rgba(0, 0, 0, 0.12);
+    --shadow-drawer: 0 2px 6px rgba(0, 0, 0, 0.05), 0 24px 60px -18px rgba(0, 0, 0, 0.18);
+    --card-top: rgba(255, 255, 255, 0);
+    --bug-dir-ink: #b07d00;
+    --bug-micro-ink: #007a90;
+    --bug-neg-bg: rgba(255, 69, 58, 0.22);
+    --bug-dir-bg: rgba(255, 214, 10, 0.38);
+    --bug-micro-bg: rgba(64, 200, 224, 0.3);
+    --sel-bg: rgba(10, 132, 255, 0.22);
+    --aurora-1: rgba(10, 132, 255, 0.13);
+    --aurora-2: rgba(191, 90, 242, 0.1);
+    --aurora-3: rgba(48, 209, 88, 0.07);
+    --scroll: rgba(0, 0, 0, 0.16);
+    --scroll-hover: rgba(0, 0, 0, 0.28);
+    --ai-face: #ffffff;
+    color-scheme: light;
+  }
+
+  /* ---------- 深空暗黑（Apple Keynote 默认） ---------- */
+  [data-theme="apple_dark"] {
+    --bg: 10 10 12;
+    --white: 28 28 30;
+    --black: 0 0 0;
+    --scrim: 0 0 0;
+    --ink-950: 245 245 247;
+    --ink-900: 245 245 247;
+    --ink-850: 235 235 240;
+    --ink-800: 226 226 231;
+    --ink-750: 212 212 217;
+    --ink-700: 198 198 203;
+    --ink-600: 172 172 177;
+    --ink-500: 142 142 147;
+    --apple-green: 48 209 88;
+    --apple-red: 255 69 58;
+    --apple-yellow: 255 214 10;
+    --apple-blue: 10 132 255;
+    --apple-teal: 64 200 224;
+    --apple-purple: 191 90 242;
+    --apple-orange: 255 159 10;
+    --shadow-bento: 0 1px 2px rgba(0, 0, 0, 0.55), 0 12px 34px -16px rgba(0, 0, 0, 0.9);
+    --shadow-drawer: 0 2px 8px rgba(0, 0, 0, 0.6), 0 28px 70px -20px rgba(0, 0, 0, 0.95);
+    --card-top: rgba(255, 255, 255, 0.035);
+    --bug-dir-ink: #ffd60a;
+    --bug-micro-ink: #64d2ff;
+    --bug-neg-bg: rgba(255, 69, 58, 0.3);
+    --bug-dir-bg: rgba(255, 214, 10, 0.26);
+    --bug-micro-bg: rgba(100, 210, 255, 0.26);
+    --sel-bg: rgba(10, 132, 255, 0.34);
+    --aurora-1: rgba(10, 132, 255, 0.3);
+    --aurora-2: rgba(191, 90, 242, 0.24);
+    --aurora-3: rgba(48, 209, 88, 0.14);
+    --scroll: rgba(255, 255, 255, 0.18);
+    --scroll-hover: rgba(255, 255, 255, 0.32);
+    --ai-face: #16161a;
+    color-scheme: dark;
+  }
+
+  /* ---------- 纯黑 OLED ---------- */
+  [data-theme="oled"] {
+    --bg: 0 0 0;
+    --white: 14 14 15;
+    --black: 0 0 0;
+    --scrim: 0 0 0;
+    --ink-950: 245 245 247;
+    --ink-900: 245 245 247;
+    --ink-850: 232 232 236;
+    --ink-800: 220 220 225;
+    --ink-750: 206 206 211;
+    --ink-700: 190 190 195;
+    --ink-600: 164 164 169;
+    --ink-500: 138 138 143;
+    --apple-green: 48 209 88;
+    --apple-red: 255 69 58;
+    --apple-yellow: 255 214 10;
+    --apple-blue: 10 132 255;
+    --apple-teal: 64 200 224;
+    --apple-purple: 191 90 242;
+    --apple-orange: 255 159 10;
+    --shadow-bento: 0 0 0 1px rgba(255, 255, 255, 0.06);
+    --shadow-drawer: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 20px 60px -20px #000;
+    --card-top: rgba(255, 255, 255, 0.02);
+    --bug-dir-ink: #ffd60a;
+    --bug-micro-ink: #64d2ff;
+    --bug-neg-bg: rgba(255, 69, 58, 0.3);
+    --bug-dir-bg: rgba(255, 214, 10, 0.26);
+    --bug-micro-bg: rgba(100, 210, 255, 0.26);
+    --sel-bg: rgba(10, 132, 255, 0.34);
+    --aurora-1: rgba(10, 132, 255, 0.16);
+    --aurora-2: rgba(191, 90, 242, 0.12);
+    --aurora-3: rgba(48, 209, 88, 0.07);
+    --scroll: rgba(255, 255, 255, 0.16);
+    --scroll-hover: rgba(255, 255, 255, 0.3);
+    --ai-face: #0d0d0f;
+    color-scheme: dark;
+  }
+
+  /* 题干字号（设置页「标准 / 偏大 / 特大」） */
+  [data-font="large"] {
+    --stem-lg: 21px;
+    --stem-sm: 15.5px;
+  }
+  [data-font="xlarge"] {
+    --stem-lg: 23.5px;
+    --stem-sm: 17px;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    background: rgb(var(--bg));
+    @apply text-ink-900/90 antialiased;
+    font-feature-settings: "tnum" on, "lnum" on;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.35s ease;
+  }
+
+  ::selection {
+    background: var(--sel-bg);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--scroll);
+    border-radius: 999px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--scroll-hover);
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+@layer components {
+  .card {
+    @apply relative rounded-[26px] border border-ink-950/8 bg-white p-5
+           transition-all duration-300;
+    background-image: linear-gradient(180deg, var(--card-top), transparent 62%);
+    box-shadow: var(--shadow-bento);
+  }
+
+  .card-hover {
+    @apply hover:border-ink-950/16;
+  }
+  .card-hover:hover {
+    box-shadow: var(--shadow-drawer);
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-ink-950/8
+           bg-white px-3 py-1 text-[12px] font-medium text-ink-900/62;
+  }
+
+  .btn {
+    @apply inline-flex select-none items-center justify-center gap-2 rounded-full
+           px-4 py-2 text-[13px] font-semibold transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply btn bg-ink-950 text-white hover:bg-ink-950/88 active:scale-[.97];
+  }
+
+  .btn-ghost {
+    @apply btn border border-ink-950/12 bg-white text-ink-900/74
+           hover:border-ink-950/22 hover:bg-ink-950/[0.04] hover:text-ink-900
+           active:scale-[.97];
+  }
+
+  .btn-danger {
+    @apply btn border border-apple-red/30 bg-apple-red/8 text-apple-red
+           hover:bg-apple-red/16 active:scale-[.97];
+  }
+
+  .stat-num {
+    @apply font-sans text-[38px] font-semibold leading-none tracking-tight;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .label {
+    @apply text-[11px] font-medium uppercase tracking-[0.14em] text-ink-900/40;
+  }
+
+  /* 题干字号跟着设置走 */
+  .stem-lg {
+    font-size: var(--stem-lg);
+    @apply font-medium leading-[1.72] tracking-[-0.01em] text-ink-900/92;
+  }
+  .stem-sm {
+    font-size: var(--stem-sm);
+    @apply leading-relaxed text-ink-900/82;
+  }
+
+  /* 遮罩（灯箱 / 缩略图蒙层）：三套主题都必须是黑色 */
+  .scrim-45 { background: rgb(var(--scrim) / 0.45); }
+  .scrim-80 { background: rgb(var(--scrim) / 0.82); }
+
+  /* 题干里的捉虫高亮 ------------------------------------------------ */
+  .bug-neg {
+    @apply relative font-semibold text-apple-red;
+    background: linear-gradient(transparent 62%, var(--bug-neg-bg) 62%);
+    padding: 0 1px;
+  }
+
+  .bug-dir {
+    @apply font-semibold;
+    color: var(--bug-dir-ink);
+    background: linear-gradient(transparent 62%, var(--bug-dir-bg) 62%);
+    padding: 0 1px;
+  }
+
+  .bug-micro {
+    @apply font-semibold;
+    color: var(--bug-micro-ink);
+    background: linear-gradient(transparent 62%, var(--bug-micro-bg) 62%);
+    padding: 0 1px;
+  }
+
+  .opt-row {
+    @apply flex w-full items-start gap-3.5 rounded-2xl border border-ink-950/10
+           bg-white px-4 py-3.5 text-left transition-all duration-200;
+  }
+
+  .opt-key {
+    @apply mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full
+           border border-ink-950/15 text-[12px] font-bold text-ink-900/55;
+  }
+
+  .drawer {
+    @apply rounded-[26px] border border-ink-950/8 bg-white;
+    box-shadow: var(--shadow-drawer);
+  }
+
+  /* Apple Intelligence 风格的微光卡片：一层跟随边框的锥形渐变描边，
+     加极淡的蓝紫内发光；不做大面积动效（省电，写作业时也安静） */
+  .ai-card {
+    @apply relative overflow-hidden rounded-[22px] border border-ink-950/8 bg-white p-4;
+  }
+  .ai-card::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(
+      from 180deg,
+      rgb(var(--apple-blue) / 0.55),
+      rgb(var(--apple-purple) / 0.5),
+      rgb(var(--apple-green) / 0.4),
+      rgb(var(--apple-blue) / 0.55)
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.75;
+  }
+  .ai-glow {
+    background:
+      radial-gradient(120% 80% at 8% 0%, rgb(var(--apple-blue) / 0.075), transparent 60%),
+      radial-gradient(120% 90% at 96% 4%, rgb(var(--apple-purple) / 0.065), transparent 62%),
+      var(--ai-face);
+  }
+
+  /* 骨架屏呼吸 */
+  .skeleton {
+    @apply rounded-lg bg-ink-950/8;
+    animation: breathe 1.5s ease-in-out infinite;
+  }
+  @keyframes breathe {
+    0%, 100% { opacity: 0.45; }
+    50%      { opacity: 0.9; }
+  }
+
+  /* 打字机光标 */
+  .caret::after {
+    content: "";
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    margin-left: 2px;
+    transform: translateY(2px);
+    background: rgb(var(--apple-blue) / 0.85);
+    animation: blink 1s steps(1) infinite;
+  }
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
+  .prose-note {
+    @apply text-[14px] leading-[1.85] text-ink-900/78;
+  }
+
+  .prose-note h1,
+  .prose-note h2,
+  .prose-note h3 {
+    @apply mb-2 mt-5 font-semibold text-ink-900/92 first:mt-0;
+  }
+  .prose-note h1 { @apply text-[19px]; }
+  .prose-note h2 { @apply text-[17px]; }
+  .prose-note h3 { @apply text-[15px]; }
+  .prose-note p { @apply my-2.5; }
+  .prose-note strong { @apply font-semibold text-ink-900; }
+  .prose-note ul { @apply my-2.5 list-disc space-y-1 pl-5; }
+  .prose-note ol { @apply my-2.5 list-decimal space-y-1 pl-5; }
+  .prose-note blockquote {
+    @apply my-3 border-l-2 border-apple-blue/50 bg-ink-950/[0.03] py-1.5 pl-4 text-ink-900/70;
+  }
+  .prose-note code {
+    @apply rounded bg-ink-950/8 px-1.5 py-0.5 font-mono text-[12.5px];
+    color: var(--bug-micro-ink);
+  }
+  .prose-note table {
+    @apply my-3 w-full border-collapse overflow-hidden rounded-lg text-[13px];
+  }
+  .prose-note th {
+    @apply border border-ink-950/10 bg-ink-950/[0.045] px-2.5 py-1.5 text-left font-semibold;
+  }
+  .prose-note td {
+    @apply border border-ink-950/8 px-2.5 py-1.5 text-ink-900/74;
+  }
+  .prose-note a {
+    @apply text-apple-blue underline decoration-apple-blue/40 underline-offset-2;
+  }
+  .prose-note hr { @apply my-4 border-ink-950/10; }
+  .prose-note img {
+    @apply my-3 max-h-[280px] w-auto rounded-xl border border-ink-950/10 bg-ink-950/[0.02] object-contain;
+  }
+  .prose-note ol > li::marker,
+  .prose-note ul > li::marker { @apply text-ink-900/35; }
+
+  /* 笔记里的 LaTeX：块级公式一律装进可横滚的卡片，绝不撑破抽屉 */
+  .prose-note .math-block {
+    @apply my-3 overflow-x-auto rounded-xl border border-ink-950/10 bg-ink-950/[0.035] px-3 py-2.5;
+    max-width: 100%;
+  }
+  .prose-note .math-block .katex-display {
+    margin: 0;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0.25rem 0;
+  }
+  .prose-note .katex {
+    font-size: 1.02em;
+  }
+  /* CJK 在 KaTeX 里靠回落字体，盒子宽度是按 KaTeX 自己字体量出来的，
+     一旦允许换行就会挤成竖排重叠——必须 nowrap，溢出交给外层卡片横向滚动。 */
+  .prose-note .katex .mord,
+  .prose-note .katex .mtext,
+  .prose-note .katex .text {
+    white-space: nowrap;
+  }
+
+  /* 长推导链：拆成可换行的胶囊流程条 */
+  .chain-flow {
+    @apply my-3 flex flex-wrap items-center gap-1.5 rounded-xl border border-apple-teal/25 bg-apple-teal/[0.07] px-3 py-2.5;
+  }
+  .chain-node {
+    @apply inline-flex items-center gap-1.5;
+  }
+  .chain-arrow {
+    @apply text-[13px] font-semibold text-apple-teal;
+  }
+  .chain-chip {
+    @apply rounded-lg border border-ink-950/10 bg-white px-2 py-1 text-[12px] font-medium leading-[1.5] text-ink-900/82;
+    max-width: 100%;
+  }
+  [data-theme="apple_dark"] .chain-chip,
+  [data-theme="oled"] .chain-chip {
+    @apply bg-ink-950/[0.08];
+  }
+
+  /* 设置页：macOS 系统设置风格的分组卡片 */
+  .group-card {
+    @apply overflow-hidden rounded-[16px] border border-ink-950/8 bg-white;
+  }
+  .row {
+    @apply flex items-center justify-between gap-4 px-4 py-3;
+  }
+  .row + .row {
+    @apply border-t border-ink-950/6;
+  }
+  .inset {
+    @apply rounded-xl border border-ink-950/10 bg-ink-950/[0.035] px-3 py-2 text-[13px]
+           text-ink-900/82 outline-none transition-colors
+           placeholder:text-ink-900/30 focus:border-apple-blue/60;
+  }
+  /* Apple 分段控制器 */
+  .seg {
+    @apply inline-flex rounded-full border border-ink-950/10 bg-ink-950/[0.04] p-0.5;
+  }
+  .seg > button {
+    @apply rounded-full px-3 py-1.5 text-[12px] font-medium text-ink-900/55
+           transition-colors hover:text-ink-900/80;
+  }
+  .seg > button[aria-selected="true"] {
+    @apply bg-white text-ink-900;
+    box-shadow: 0 1px 3px rgb(var(--scrim) / 0.16);
+  }
+  /* Apple 开关 */
+  .switch {
+    @apply relative h-[26px] w-[44px] shrink-0 cursor-pointer rounded-full
+           transition-colors duration-200;
+    background: rgb(var(--ink-950) / 0.18);
+  }
+  .switch[data-on="true"] {
+    background: rgb(var(--apple-green));
+  }
+  .switch::after {
+    content: "";
+    @apply absolute left-[3px] top-[3px] h-5 w-5 rounded-full bg-white transition-transform duration-200;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+  .switch[data-on="true"]::after {
+    transform: translateX(18px);
+  }
+}
+
+/* 极光：深色主题下更明显，浅色主题必须极淡，否则像坏掉的投影仪 */
+.aurora {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.aurora::before,
+.aurora::after,
+.aurora > i {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.5;
+  will-change: transform;
+}
+.aurora::before {
+  width: 640px;
+  height: 640px;
+  left: -140px;
+  top: -220px;
+  background: radial-gradient(circle, var(--aurora-1), transparent 68%);
+  animation: drift1 26s ease-in-out infinite;
+}
+.aurora::after {
+  width: 720px;
+  height: 720px;
+  right: -240px;
+  top: 18%;
+  background: radial-gradient(circle, var(--aurora-2), transparent 68%);
+  animation: drift2 32s ease-in-out infinite;
+}
+.aurora > i {
+  width: 560px;
+  height: 560px;
+  left: 32%;
+  bottom: -260px;
+  background: radial-gradient(circle, var(--aurora-3), transparent 70%);
+  animation: drift3 38s ease-in-out infinite;
+}
+
+@keyframes drift1 {
+  50% { transform: translate3d(90px, 70px, 0) scale(1.12); }
+}
+@keyframes drift2 {
+  50% { transform: translate3d(-110px, 60px, 0) scale(1.08); }
+}
+@keyframes drift3 {
+  50% { transform: translate3d(60px, -80px, 0) scale(1.15); }
+}
+
+/* 设置页「减弱动态效果」+ 系统偏好双通道 */
+[data-motion="reduced"] .aurora,
+[data-motion="reduced"] .aurora::before,
+[data-motion="reduced"] .aurora::after,
+[data-motion="reduced"] .aurora > i {
+  animation: none !important;
+  opacity: 0.18;
+}
+[data-motion="reduced"] .skeleton {
+  animation: none;
+  opacity: 0.6;
+}
+[data-motion="reduced"] * {
+  animation-duration: 0.01ms !important;
+  transition-duration: 0.01ms !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora::before,
+  .aurora::after,
+  .aurora > i {
+    animation: none;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

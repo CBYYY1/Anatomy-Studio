@@ -1,0 +1,39 @@
+{
+  "llm": {
+    "provider": "deepseek",
+    "base_url": "https://api.deepseek.com",
+    "api_key": "",
+    "model": "deepseek-chat",
+    "trigger_mode": "on_wrong",
+    "style": "rigorous",
+    "models": [],
+    "models_from": "",
+    "pinned": []
+  },
+  "knowledge_base": {
+    "mode": "builtin",
+    "obsidian_vault_path": "",
+    "obsidian_vault_name": "",
+    "enable_writeback": false,
+    "writeback_threshold": 3
+  },
+  "quiz_preferences": {
+    "highlight_mode": "always",
+    "auto_next_on_correct": false,
+    "auto_next_delay_ms": 800,
+    "cram_mastery_streak": 3,
+    "enable_shortcuts": true
+  },
+  "appearance": {
+    "theme": "apple_dark",
+    "font_scale": "normal",
+    "reduced_motion": false
+  },
+  "update": {
+    "repo": "your-name/Anatomy-Studio",
+    "branch": "main",
+    "last_sync_at": 0,
+    "last_sync_commit": "",
+    "auto_check": true
+  }
+}

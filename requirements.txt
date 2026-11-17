@@ -1,0 +1,16 @@
+# Anatomy Studio · 运行依赖
+#
+# 安装：pip install -r requirements.txt
+# Python 3.10 及以上（用到 X | Y 类型注解语法）。
+
+# ---- 后端服务
+fastapi>=0.110
+uvicorn>=0.27
+python-multipart>=0.0.9      # 题库 / 进度文件上传（FormData）
+
+# ---- 大模型与网络请求
+# httpx 由 analysis.py 直接调用（OpenAI 兼容接口）
+httpx>=0.26
+
+# ---- 打包便携版时才需要（源码运行可忽略）
+# pyinstaller>=6.3
