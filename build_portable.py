@@ -14,7 +14,7 @@
 2. **发布目录里不能有任何 Key**：配置从 `config.DEFAULT` 重新生成，`api_key` 置空；
    构建完再全文扫一遍 `sk-` 开头的字符串做兜底。
 3. **图片必须自带**：把题库里引用到的 196 张图从 Obsidian 库抽到 `data/media/`，
-   并把 `questions.json` 的 `images` 重写成 `media/...`，同学没装 Obsidian 也能看图。
+   并把 `questions.json` 的 `images` 重写成 `media/...`，使用者没装 Obsidian 也能看图。
 """
 from __future__ import annotations
 
@@ -372,6 +372,20 @@ def main() -> int:
             shutil.copy2(s, OUT / "data" / name)
             say(f"  拷贝 data/{name}（{human(s.stat().st_size)}）")
 
+    # 版本清单必须跟着走：它记录「本次发布对应的题库版本」。
+    # 缺了它，new 的 `local_manifest()` 只能拿题库现场兜版本号，
+    # 于是每个使用者第一次打开都会看到「有新内容可同步」的误报。
+    ver = DATA / "version.json"
+    if ver.is_file():
+        shutil.copy2(ver, OUT / "data" / "version.json")
+        try:
+            bv = json.loads(ver.read_text(encoding="utf-8")).get("bank_version") or "未标注"
+        except Exception:                              # noqa: BLE001
+            bv = "未标注"
+        say(f"  拷贝 data/version.json（题库版本 {bv}）")
+    else:
+        say("  [warn] 缺少 data/version.json，应用内更新检查可能误报有新内容")
+
     # AI 解析缓存：这是「刷题成果」，一起带走（里面没有任何 Key）
     side = DATA / "targeted_analysis.json"
     if side.is_file():
@@ -436,7 +450,7 @@ def main() -> int:
                 shutil.copytree(item, dst)
             else:
                 shutil.copy2(item, dst)
-        # 打包器可能把 data/ 一起带进来（不该有），删掉避免盖住同学的进度
+        # 打包器可能把 data/ 一起带进来（不该有），删掉避免盖住使用者的进度
         bundled_data = OUT / "_internal" / "data"
         if bundled_data.exists():
             shutil.rmtree(bundled_data)
@@ -517,8 +531,8 @@ def main() -> int:
     say(f"  总大小  ：{human(sum(p.stat().st_size for p in OUT.rglob('*') if p.is_file()))}")
     say(f"  耗时    ：{time.time() - t0:.1f} s")
     say("")
-    say("  发给同学：整个 AnatomyStudio_Portable 文件夹打包即可。")
-    say("  同学双击「启动 Anatomy Studio.bat」→ 浏览器自动打开。")
+    say("  分发：整个 AnatomyStudio_Portable 文件夹打包即可。")
+    say("  双击「启动 Anatomy Studio.bat」→ 浏览器自动打开。")
     return 0
 
 
