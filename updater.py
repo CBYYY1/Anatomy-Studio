@@ -22,6 +22,7 @@ import shutil
 import time
 import urllib.error
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from threading import Lock
 from urllib.parse import quote
@@ -29,6 +30,7 @@ from urllib.parse import quote
 import config as CFG
 
 TIMEOUT = 10           # 单个请求超时（秒）
+MANIFEST_TIMEOUT = 6   # 版本清单只有几百字节，6 秒还不回来就放弃，改走 API 兜底
 MEDIA_TIMEOUT = 20     # 图片稍大，给宽一点
 
 # 版本清单：随仓库提交，一次 GET 就能拿到「客户端版本 + 题库版本 + 更新说明」，
@@ -83,14 +85,55 @@ def _raw_candidates(rel: str) -> list[str]:
 
 
 def _fetch_first(rel: str, timeout: int = TIMEOUT) -> tuple[bytes, str]:
-    """按候选链依次尝试；返回 (内容, 实际 URL)。全失败抛最后一个错误。"""
+    """按候选链依次尝试；返回 (内容, 实际 URL)。全失败抛最后一个错误。
+
+    404 直接跳出：文件在仓库里就不存在，换镜像也拉不到，没必要再等超时。
+    """
     errors = []
     for url in _raw_candidates(rel):
         try:
             return _get(url, timeout), url
+        except urllib.error.HTTPError as exc:
+            errors.append(f"{url.split('/')[2]}: HTTP {exc.code}")
+            if exc.code == 404:
+                break
         except Exception as exc:                      # noqa: BLE001 — 逐个兜底
             errors.append(f"{url.split('/')[2]}: {type(exc).__name__}")
-            continue
+        continue
+    raise RuntimeError("所有下载地址都失败了（" + "；".join(errors) + "）")
+
+
+def _fetch_any(rel: str, timeout: int = TIMEOUT) -> tuple[bytes, str]:
+    """同一份文件的多个候选地址**并发**去抢，谁先回来用谁。
+
+    为什么不用串行：校园网下直连常常是「一直等到超时」而不是快速失败，
+    串行时 直连 10s + 镜像 20s ≈ 30s，用户会以为软件卡死。
+
+    为什么还要 deadline：`as_completed` 不带超时会等最慢的那个 future，
+    而 urllib 的 timeout 是「单次 socket 操作」超时，走代理时实际总耗时可能
+    远超它（实测 timeout=10 的代理请求能拖到 20s）。所以这里给整批一个
+    硬截止时间，到点就放弃——宁可退回 API 兜底，也不能让界面干等。
+    """
+    urls = _raw_candidates(rel)
+    if not urls:
+        raise RuntimeError("没有配置 GitHub 仓库")
+    errors: list[str] = []
+    pool = ThreadPoolExecutor(max_workers=len(urls))
+    try:
+        futs = {pool.submit(_get, u, timeout): u for u in urls}
+        try:
+            for fut in as_completed(futs, timeout=timeout):
+                url = futs[fut]
+                try:
+                    return fut.result(), url
+                except Exception as exc:              # noqa: BLE001
+                    code = getattr(exc, "code", "")
+                    errors.append(f"{url.split('/')[2]}: "
+                                  f"{'HTTP ' + str(code) if code else type(exc).__name__}")
+        except TimeoutError:
+            errors.append(f"超过 {timeout}s 没有可用地址")
+    finally:
+        pool.shutdown(wait=False, cancel_futures=True)
     raise RuntimeError("所有下载地址都失败了（" + "；".join(errors) + "）")
 
 
@@ -155,7 +198,7 @@ def local_manifest() -> dict:
 def fetch_manifest() -> tuple[dict | None, str]:
     """从仓库拉 data/version.json（走 raw + 代理链）。失败返回 (None, 原因)。"""
     try:
-        raw, url = _fetch_first(VERSION_REL, timeout=TIMEOUT)
+        raw, url = _fetch_any(VERSION_REL, timeout=MANIFEST_TIMEOUT)
     except Exception as exc:                           # noqa: BLE001
         return None, str(exc)[:160]
     try:
@@ -440,7 +483,7 @@ def _sync_bank_inner() -> dict:
 
     # 1) 下载题库
     _set(phase="bank", message="正在下载最新题库…", done=0, total=0)
-    raw, used_url = _fetch_first("data/questions.json", timeout=TIMEOUT)
+    raw, used_url = _fetch_any("data/questions.json", timeout=TIMEOUT)
     try:
         new_qs = json.loads(raw.decode("utf-8"))
     except Exception as exc:                           # noqa: BLE001
@@ -456,7 +499,7 @@ def _sync_bank_inner() -> dict:
     got, failed = 0, []
     for i, rel in enumerate(missing, 1):
         try:
-            blob, _ = _fetch_first(f"data/media/{rel}", timeout=MEDIA_TIMEOUT)
+            blob, _ = _fetch_any(f"data/media/{rel}", timeout=MEDIA_TIMEOUT)
         except Exception:                              # noqa: BLE001
             failed.append(rel)
             _set(done=i, message=f"配图 {i}/{len(missing)}（{Path(rel).name} 失败）")

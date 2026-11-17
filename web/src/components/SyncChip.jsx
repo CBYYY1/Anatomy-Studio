@@ -27,6 +27,7 @@ export default function SyncChip({ onDone }) {
   const ranRef = useRef(false);
 
   const running = sync?.running || checking;
+  const syncing = !!sync?.running;
 
   const loadMeta = useCallback(async () => {
     try {
@@ -101,12 +102,14 @@ export default function SyncChip({ onDone }) {
   const hasBank = !!info?.has_new_question_bank;
   const hasApp = !!info?.has_new_app_release;
   const pct = sync?.total ? Math.min(100, Math.round((sync.done / sync.total) * 100)) : null;
-  const label = running ? "正在同步" : hasBank ? "有新章节笔记可同步" : "同步题库";
+  // 「正在同步」只在真的下载题库时显示；启动时静默检查不该让胶囊变成转圈状态
+  const label = syncing ? "正在同步" : hasBank ? "有新章节笔记可同步" : "同步题库";
 
   // 悬浮气泡内容：最新题库版本 + 变更说明 / 出错原因 / 版本提示
   const remoteBank = info?.remote_manifest?.bank_version || "";
   const tip = (() => {
-    if (running) return sync?.message || "正在从仓库拉取最新题库与配图…";
+    if (syncing) return sync?.message || "正在从仓库拉取最新题库与配图…";
+    if (checking) return "正在检查云端有没有新内容…";
     if (!info) return "点一下检查云端有没有新内容";
     if (info.ok === false) return info.detail || "连不上 GitHub，稍后再试";
     const lines = [];
@@ -123,7 +126,7 @@ export default function SyncChip({ onDone }) {
         onClick={() => (hasBank || hasApp ? setOpen((v) => !v) : doSync())}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
-        disabled={running}
+        disabled={syncing}
         className={`chip relative overflow-hidden transition-colors ${
           hasBank
             ? "border-apple-green/35 bg-apple-green/10 text-apple-green"
@@ -131,8 +134,10 @@ export default function SyncChip({ onDone }) {
         }`}
         title={tip}
       >
-        {running ? (
+        {syncing ? (
           <Loader2 className="h-3 w-3 animate-spin" />
+        ) : checking ? (
+          <CloudDownload className="h-3 w-3 opacity-50" />
         ) : hasBank ? (
           <span className="relative flex h-1.5 w-1.5">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-apple-green opacity-70" />
@@ -142,8 +147,8 @@ export default function SyncChip({ onDone }) {
           <CloudDownload className="h-3 w-3" />
         )}
         <span className="tabular-nums">{label}</span>
-        {running && pct !== null && <span className="tabular-nums opacity-62">{pct}%</span>}
-        {running && (
+        {syncing && pct !== null && <span className="tabular-nums opacity-62">{pct}%</span>}
+        {syncing && (
           <span
             className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px] bg-apple-blue/70 transition-[width] duration-300"
             style={{ width: `${sync?.phase === "media" && pct !== null ? pct : 12}%` }}
