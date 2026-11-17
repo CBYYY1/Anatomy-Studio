@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   ArrowUpRight, Check, CloudDownload, ExternalLink, Loader2, Sparkles, X,
 } from "lucide-react";
@@ -125,27 +125,29 @@ export default function UpdatePrompt() {
     }
   };
 
+  // 注意：这里**刻意不用 AnimatePresence 的 exit 动画**。
+  // 这个弹窗的根节点是 `fixed inset-0` 的全屏遮罩，实测 exit 动画会让节点
+  // 停在 opacity:0 却一直不卸载（framer-motion 的退出回调没触发），留下一层
+  // 看不见但会吃掉所有点击的遮罩，等于整个界面失灵。进场动画保留，关闭直接卸载。
+  if (!open) return null;
+
   return (
-    <AnimatePresence>
-      {open && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[60] flex items-center justify-center p-5"
-          data-update-prompt="1"
-        >
-          <div
-            className="absolute inset-0 scrim-45 backdrop-blur-md"
-            onClick={() => dismiss(false)}
-          />
-          <motion.div
-            initial={{ opacity: 0, y: 14, scale: 0.97 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 10, scale: 0.98 }}
-            transition={{ type: "spring", stiffness: 260, damping: 26 }}
-            className="relative w-full max-w-[460px] overflow-hidden rounded-[22px] border border-ink-950/10 bg-white p-5 shadow-bento"
-          >
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="fixed inset-0 z-[60] flex items-center justify-center p-5"
+      data-update-prompt="1"
+    >
+      <div
+        className="absolute inset-0 scrim-45 backdrop-blur-md"
+        onClick={() => dismiss(false)}
+      />
+      <motion.div
+        initial={{ opacity: 0, y: 14, scale: 0.97 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ type: "spring", stiffness: 260, damping: 26 }}
+        className="relative w-full max-w-[460px] overflow-hidden rounded-[22px] border border-ink-950/10 bg-white p-5 shadow-bento"
+      >
             <button
               onClick={() => dismiss(false)}
               className="btn-ghost absolute right-3 top-3 px-1.5 py-1"
@@ -266,9 +268,7 @@ export default function UpdatePrompt() {
                 </button>
               </div>
             </div>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+      </motion.div>
+    </motion.div>
   );
 }

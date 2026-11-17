@@ -29,8 +29,8 @@ from urllib.parse import quote
 
 import config as CFG
 
-TIMEOUT = 10           # 单个请求超时（秒）
-MANIFEST_TIMEOUT = 6   # 版本清单只有几百字节，6 秒还不回来就放弃，改走 API 兜底
+TIMEOUT = 12           # 单个请求超时（秒）
+MANIFEST_TIMEOUT = 6   # 版本清单只有几百字节，第一轮 6 秒还不回来就换一轮
 MEDIA_TIMEOUT = 20     # 图片稍大，给宽一点
 
 # 版本清单：随仓库提交，一次 GET 就能拿到「客户端版本 + 题库版本 + 更新说明」，
@@ -39,6 +39,8 @@ VERSION_REL = "data/version.json"
 
 # 下载候选链：直连优先，失败再套代理前缀
 _PROXIES = ("https://mirror.ghproxy.com/", "https://ghp.ci/")
+
+_SYSTEM = object()     # _get() 的 proxy 哨兵值：走系统/环境代理（默认行为）
 
 _LOCK = Lock()
 _STATE = {
@@ -60,11 +62,28 @@ def _ua() -> str:
     return f"AnatomyStudio/{CFG.APP_VERSION} (+https://github.com/{CFG.repo()})"
 
 
-def _get(url: str, timeout: int = TIMEOUT, headers: dict | None = None) -> bytes:
+def _get(url: str, timeout: int = TIMEOUT, headers: dict | None = None,
+         proxy=_SYSTEM) -> bytes:
+    """发一个 GET。`proxy` 决定这一发走不走代理。
+
+    - `_SYSTEM`（默认）：用 urllib 全局 opener，也就是环境变量 / 系统代理
+    - `None`：显式**不走**代理（ProxyHandler({})）
+    - 字符串：显式走这个代理地址
+
+    为什么要区分：实测同一台机器上，同一个 raw 地址「走系统代理」稳定 0.4s，
+    而「直连」冷启动会卡到 40s 以上（TCP 通、TLS 握手抖），但 api.github.com
+    恰好反过来是直连快。所以固定用哪一种都不对，两个都得试。
+    """
     req = urllib.request.Request(url, headers={"User-Agent": _ua(),
                                                "Accept": "*/*",
                                                **(headers or {})})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
+    if proxy is _SYSTEM:
+        opener = urllib.request.urlopen
+    else:
+        handlers = [urllib.request.ProxyHandler(
+            {"http": proxy, "https": proxy} if proxy else {})]
+        opener = urllib.request.build_opener(*handlers).open
+    with opener(req, timeout=timeout) as r:
         return r.read()
 
 
@@ -74,14 +93,22 @@ def _get_json(url: str, timeout: int = TIMEOUT) -> dict | list:
 
 
 def _raw_candidates(rel: str) -> list[str]:
-    """给定仓库内相对路径，返回「直连 + 各代理」的候选下载地址。"""
+    """给定仓库内相对路径，返回候选地址列表。
+
+    每一项是 `(url, proxy)`：同一个 raw 地址会同时给出「走系统代理」和
+    「直连」两种取法，外加各镜像站的直连版本。实测两者的快慢在同一台
+    机器上会翻转（raw 走代理 0.4s / 直连 40s+，api 反过来直连 0.4s），
+    所以不预设哪个快，交给并发去抢。
+    """
     repo = CFG.repo()
     if not repo:
         return []
     branch = CFG.updater().get("branch") or "main"
     path = quote(rel, safe="/")
     direct = f"https://raw.githubusercontent.com/{repo}/{branch}/{path}"
-    return [direct] + [f"{p}{direct}" for p in _PROXIES]
+    cands = [(direct, _SYSTEM), (direct, None)]
+    cands += [(f"{p}{direct}", _SYSTEM) for p in _PROXIES]
+    return cands
 
 
 def _fetch_first(rel: str, timeout: int = TIMEOUT) -> tuple[bytes, str]:
@@ -90,9 +117,9 @@ def _fetch_first(rel: str, timeout: int = TIMEOUT) -> tuple[bytes, str]:
     404 直接跳出：文件在仓库里就不存在，换镜像也拉不到，没必要再等超时。
     """
     errors = []
-    for url in _raw_candidates(rel):
+    for url, proxy in _raw_candidates(rel):
         try:
-            return _get(url, timeout), url
+            return _get(url, timeout, proxy=proxy), url
         except urllib.error.HTTPError as exc:
             errors.append(f"{url.split('/')[2]}: HTTP {exc.code}")
             if exc.code == 404:
@@ -103,7 +130,8 @@ def _fetch_first(rel: str, timeout: int = TIMEOUT) -> tuple[bytes, str]:
     raise RuntimeError("所有下载地址都失败了（" + "；".join(errors) + "）")
 
 
-def _fetch_any(rel: str, timeout: int = TIMEOUT) -> tuple[bytes, str]:
+def _fetch_any(rel: str, timeout: int = TIMEOUT,
+               rounds: int = 1) -> tuple[bytes, str]:
     """同一份文件的多个候选地址**并发**去抢，谁先回来用谁。
 
     为什么不用串行：校园网下直连常常是「一直等到超时」而不是快速失败，
@@ -112,29 +140,35 @@ def _fetch_any(rel: str, timeout: int = TIMEOUT) -> tuple[bytes, str]:
     为什么还要 deadline：`as_completed` 不带超时会等最慢的那个 future，
     而 urllib 的 timeout 是「单次 socket 操作」超时，走代理时实际总耗时可能
     远超它（实测 timeout=10 的代理请求能拖到 20s）。所以这里给整批一个
-    硬截止时间，到点就放弃——宁可退回 API 兜底，也不能让界面干等。
+    硬截止时间，到点就放弃。
+
+    为什么还要 `rounds`：TLS 握手偶尔会整体抖一次（实测首轮 8 个地址全挂、
+    紧接着第二轮 0.4s 全通），多跑一轮的成本远低于让用户看到「检查失败」。
     """
-    urls = _raw_candidates(rel)
-    if not urls:
+    cands = _raw_candidates(rel)
+    if not cands:
         raise RuntimeError("没有配置 GitHub 仓库")
     errors: list[str] = []
-    pool = ThreadPoolExecutor(max_workers=len(urls))
-    try:
-        futs = {pool.submit(_get, u, timeout): u for u in urls}
+    for rnd in range(max(1, rounds)):
+        pool = ThreadPoolExecutor(max_workers=len(cands))
         try:
-            for fut in as_completed(futs, timeout=timeout):
-                url = futs[fut]
-                try:
-                    return fut.result(), url
-                except Exception as exc:              # noqa: BLE001
-                    code = getattr(exc, "code", "")
-                    errors.append(f"{url.split('/')[2]}: "
-                                  f"{'HTTP ' + str(code) if code else type(exc).__name__}")
-        except TimeoutError:
-            errors.append(f"超过 {timeout}s 没有可用地址")
-    finally:
-        pool.shutdown(wait=False, cancel_futures=True)
-    raise RuntimeError("所有下载地址都失败了（" + "；".join(errors) + "）")
+            futs = {pool.submit(_get, u, timeout, None, px): (u, px)
+                    for u, px in cands}
+            try:
+                for fut in as_completed(futs, timeout=timeout):
+                    url, px = futs[fut]
+                    try:
+                        return fut.result(), url
+                    except Exception as exc:          # noqa: BLE001
+                        code = getattr(exc, "code", "")
+                        tag = "直连" if px is None else "代理"
+                        errors.append(f"{url.split('/')[2]}·{tag}: "
+                                      f"{'HTTP ' + str(code) if code else type(exc).__name__}")
+            except TimeoutError:
+                errors.append(f"第 {rnd + 1} 轮超过 {timeout}s 没有可用地址")
+        finally:
+            pool.shutdown(wait=False, cancel_futures=True)
+    raise RuntimeError("所有下载地址都失败了（" + "；".join(errors[-6:]) + "）")
 
 
 def _ver_tuple(text: str) -> tuple:
@@ -198,7 +232,7 @@ def local_manifest() -> dict:
 def fetch_manifest() -> tuple[dict | None, str]:
     """从仓库拉 data/version.json（走 raw + 代理链）。失败返回 (None, 原因)。"""
     try:
-        raw, url = _fetch_any(VERSION_REL, timeout=MANIFEST_TIMEOUT)
+        raw, url = _fetch_any(VERSION_REL, timeout=MANIFEST_TIMEOUT, rounds=2)
     except Exception as exc:                           # noqa: BLE001
         return None, str(exc)[:160]
     try:
