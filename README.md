@@ -77,7 +77,8 @@
 - 点击即增量下载：题库文件 + 本次新增的图谱切片（已有的不重复下载）
 - **不覆盖**你的 `user_progress.json`（错题与做题记录）与 `user_config.json`（个人 API Key）；
   本地已用 API 生成的靶向解析，即使远端为空也会保留
-- 校园网直连 `raw.githubusercontent.com` 失败时自动依次尝试 `mirror.ghproxy.com`、`ghp.ci` 镜像
+- 校园网直连 `raw.githubusercontent.com` 经常不通：几个地址会**同时**去抢，谁先回应用谁，
+  并给整批设置硬截止时间（清单 6 秒、题库 10 秒），不会让界面一直转圈
 - 客户端本身有大版本更新时，提供跳转 Releases 的入口
 
 ### 5.1 更新提醒是主动弹出来的
