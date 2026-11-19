@@ -89,13 +89,18 @@ export default function Home({ go }) {
     setLoadingCram(true);
     try {
       const wantN = cramLimit === "all" ? 0 : Number(cramLimit) || 50;
-      const r = await api.cram(wantN);
-      if (!r.items.length) {
+      let items = cramItems;
+      if (!items.length) {
+        const r = await api.cram(wantN);
+        items = r.items || [];
+      }
+      const picked = wantN > 0 ? items.slice(0, wantN) : items;
+      if (!picked.length) {
         flash("急救池是空的，先去练一组吧");
         go("practice");
         return;
       }
-      sessionStorage.setItem("cram_ids", JSON.stringify(r.items.map((x) => x.id)));
+      sessionStorage.setItem("cram_ids", JSON.stringify(picked.map((x) => x.id)));
       go("practice");
     } finally {
       setLoadingCram(false);
@@ -384,14 +389,17 @@ function MiniNum({ label, value, tone = "white", onClick, title }) {
         type="button"
         onClick={onClick}
         title={title}
-        className="group -mx-2 -my-1.5 rounded-xl px-2 py-1.5 text-left transition-colors hover:bg-apple-red/[0.06]"
+        className="group -mx-2 -my-1.5 rounded-xl border border-apple-red/15 bg-apple-red/[0.03] px-2.5 py-1.5 text-left transition-colors hover:border-apple-red/35 hover:bg-apple-red/[0.07]"
       >
-        <p className="flex items-center gap-0.5 text-[10.5px] text-ink-900/40 group-hover:text-apple-red/80">
+        <p className="flex items-center gap-0.5 text-[10.5px] font-medium text-apple-red/80">
           {label}
-          <ChevronRight className="h-2.5 w-2.5 transition-transform group-hover:translate-x-0.5" />
+          <ChevronRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
         </p>
         <p className={`mt-0.5 text-[17px] font-semibold tabular-nums ${tones[tone]}`}>
           {value}
+        </p>
+        <p className="text-[9.5px] text-ink-900/42 group-hover:text-ink-900/65">
+          点击展开概览
         </p>
       </button>
     );

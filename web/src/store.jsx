@@ -224,6 +224,41 @@ export function StoreProvider({ children }) {
     [flash, refreshCram, refreshProgress]
   );
 
+  // 本地实时计算完整突击队列（与后端 /api/cram 公式完全一致，且不受任何旧进程 20/100 截断限制）
+  const localCramItems = useMemo(() => {
+    if (!list.length) return [];
+    const streakGate = Number(settings?.quiz_preferences?.cram_mastery_streak) || 3;
+    const qmap = new Map(list.map((q) => [q.id, q]));
+    const pool = [];
+    for (const [qid, r] of Object.entries(progress.questions || {})) {
+      const q = qmap.get(qid);
+      if (!q || !r) continue;
+      const consec = r.consecutive_correct || 0;
+      if (consec >= streakGate) continue;
+      const err = r.error_count || 0;
+      const star = !!r.starred;
+      if (err === 0 && !star) continue;
+      const pri = Math.round((err * 2 - consec + (star ? 1.5 : 0)) * 100) / 100;
+      pool.push({
+        id: qid,
+        priority: pri,
+        error_count: err,
+        consecutive_correct: consec,
+        starred: star,
+        last: r.last || 0,
+        chapter: q.chapter,
+        stem: q.stem,
+      });
+    }
+    pool.sort((a, b) => b.priority - a.priority || b.error_count - a.error_count || b.last - a.last);
+    return pool;
+  }, [list, progress.questions, settings?.quiz_preferences?.cram_mastery_streak]);
+
+  const effectiveCramItems = useMemo(
+    () => (localCramItems.length >= cramItems.length ? localCramItems : cramItems),
+    [localCramItems, cramItems]
+  );
+
   const stats = useMemo(() => {
     const total = list.length || 0;
     const seen = counts.seen || 0;
@@ -240,12 +275,12 @@ export function StoreProvider({ children }) {
       wrong: counts.wrong || 0,
       starred: counts.starred || 0,
       mastered: counts.mastered || 0,
-      urgent: cramItems.length,
+      urgent: effectiveCramItems.length,
     };
-  }, [list.length, counts, progress.questions, cramItems.length]);
+  }, [list.length, counts, progress.questions, effectiveCramItems.length]);
 
   const value = {
-    ready, error, meta, list, progress, counts, stats, cramItems,
+    ready, error, meta, list, progress, counts, stats, cramItems: effectiveCramItems,
     getQuestion, record, toggleStar, refreshProgress, refreshCram,
     refreshAll, invalidateQuestion,
     toast, flash,

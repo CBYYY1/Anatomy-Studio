@@ -92,8 +92,20 @@ def vault_or_400() -> Path:
 
 # ---------------------------------------------------------------- 静态资源
 
-app = FastAPI(title="Anatomy Studio", version="2.0")
+app = FastAPI(title="Anatomy Studio", version="2.2")
 app.add_middleware(GZipMiddleware, minimum_size=2048)
+
+
+@app.middleware("http")
+async def _no_cache_html_and_api(request, call_next):
+    """禁止浏览器缓存 index.html 与 API 响应，确保便携版升级或前端重编译后打开即最新界面。"""
+    response = await call_next(request)
+    p = request.url.path
+    if p == "/" or p.endswith(".html") or p.startswith("/api/"):
+        response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+        response.headers["Pragma"] = "no-cache"
+        response.headers["Expires"] = "0"
+    return response
 
 _cache = {}
 _cache_lock = Lock()
@@ -571,7 +583,7 @@ def save_session(payload: dict):
 
 
 @app.get("/api/cram")
-def cram(n: int = Query(0, ge=0, le=5000)):
+def cram(n: int = Query(0, ge=0, le=10000)):
     """考前智能突击队列。
 
     Priority = ErrorCount * 2 - ConsecutiveCorrect + (Starred ? 1.5 : 0)

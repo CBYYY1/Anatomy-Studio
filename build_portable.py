@@ -123,7 +123,7 @@ def collect_images(qs: list[dict]) -> list[str]:
         om = q.get("obsidian_match") or {}
         for p in om.get("images") or []:
             p = str(p).replace("\\", "/")
-            key = p[3:] if p.startswith("media/") else p
+            key = p[len("media/"):] if p.startswith("media/") else p
             if key and key not in seen:
                 seen.add(key)
                 out.append(key)
@@ -366,11 +366,22 @@ def main() -> int:
         json.dumps(qs, ensure_ascii=False), encoding="utf-8")
     say(f"  写出 data/questions.json（{human((OUT / 'data' / 'questions.json').stat().st_size)}）")
 
-    for name in ("questions_model.json", "knowledge_index.json"):
+    for name in (
+        "questions_model.json",
+        "knowledge_index.json",
+        "bank_stats.json",
+        "build_report.txt",
+        "user_config.example.json",
+        "user_progress.example.json",
+    ):
         s = DATA / name
         if s.is_file():
             shutil.copy2(s, OUT / "data" / name)
             say(f"  拷贝 data/{name}（{human(s.stat().st_size)}）")
+
+    # 同步 studio/data/media 中已打包的全部图谱（保持与源码版 data/media 完全一致）
+    if (DATA / "media").is_dir():
+        shutil.copytree(DATA / "media", OUT / "data" / "media", dirs_exist_ok=True)
 
     # 版本清单必须跟着走：它记录「本次发布对应的题库版本」。
     # 缺了它，new 的 `local_manifest()` 只能拿题库现场兜版本号，

@@ -45,7 +45,14 @@ export const api = {
     }),
   reset: () => req("/api/progress/reset", { method: "POST" }),
 
-  cram: (n = 0) => req(`/api/cram?n=${n}`),
+  cram: async (n = 0) => {
+    try {
+      return await req(`/api/cram?n=${n}`);
+    } catch {
+      const fallbackN = n > 0 && n <= 100 ? n : 100;
+      return await req(`/api/cram?n=${fallbackN}`);
+    }
+  },
   search: (q, limit = 24) =>
     req(`/api/search?q=${encodeURIComponent(q)}&limit=${limit}`),
   note: (path) => req(`/api/obsidian-note?path=${encodeURIComponent(path)}`),

@@ -7,6 +7,7 @@ import {
 import { useStore } from "./store";
 import SyncChip from "./components/SyncChip";
 import UpdatePrompt from "./components/UpdatePrompt";
+import { CramOverviewModal } from "./components/OverviewModals";
 import Home from "./views/Home";
 import Practice from "./views/Practice";
 import Analysis from "./views/Analysis";
@@ -119,6 +120,7 @@ export default function App() {
 
 function Shell({ children, nav, route, go, meta, stats }) {
   const { setSettingsOpen } = useStore();
+  const [navCramOpen, setNavCramOpen] = useState(false);
   return (
     <div className="relative min-h-full">
       <div className="aurora">
@@ -170,10 +172,15 @@ function Shell({ children, nav, route, go, meta, stats }) {
                     {(stats.accuracy * 100).toFixed(0)}% 正确率
                   </span>
                   {stats.urgent > 0 && (
-                    <span className="chip border-apple-red/25 bg-apple-red/10 tabular-nums text-apple-red/90">
+                    <button
+                      type="button"
+                      onClick={() => setNavCramOpen(true)}
+                      title="点击展开考前突击队列概览"
+                      className="chip border-apple-red/25 bg-apple-red/10 tabular-nums text-apple-red/90 transition-colors hover:border-apple-red/45 hover:bg-apple-red/15"
+                    >
                       <AlertTriangle className="h-3 w-3" />
                       {stats.urgent} 待抢救
-                    </span>
+                    </button>
                   )}
                 </>
               )}
@@ -200,6 +207,13 @@ function Shell({ children, nav, route, go, meta, stats }) {
       <main className="relative z-10 mx-auto max-w-[1240px] px-6 pb-24 pt-8">
         {children}
       </main>
+      {go && (
+        <CramOverviewModal
+          open={navCramOpen}
+          onClose={() => setNavCramOpen(false)}
+          go={go}
+        />
+      )}
     </div>
   );
 }
