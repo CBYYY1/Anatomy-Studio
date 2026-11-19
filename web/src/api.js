@@ -4,7 +4,14 @@
 const J = { "Content-Type": "application/json" };
 
 async function req(path, opts = {}) {
-  const res = await fetch(path, opts);
+  let res;
+  try {
+    res = await fetch(path, opts);
+  } catch (err) {
+    // Windows 本地回环 Keep-Alive 连接偶发重置时自动重试一次
+    await new Promise((r) => setTimeout(r, 220));
+    res = await fetch(path, opts);
+  }
   if (!res.ok) {
     let detail = "";
     try {

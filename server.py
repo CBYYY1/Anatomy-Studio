@@ -242,10 +242,20 @@ def read_progress():
 def write_progress(data):
     data["updated"] = int(time.time())
     DATA.mkdir(parents=True, exist_ok=True)
-    tmp = PROGRESS.with_suffix(".tmp")
-    tmp.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")),
-                   encoding="utf-8")
-    os.replace(tmp, PROGRESS)
+    text = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
+    tmp = PROGRESS.with_suffix(f".{os.getpid()}.tmp")
+    tmp.write_text(text, encoding="utf-8")
+    for i in range(6):
+        try:
+            os.replace(tmp, PROGRESS)
+            return
+        except PermissionError:
+            time.sleep(0.05 * (i + 1))
+    try:
+        tmp.unlink(missing_ok=True)
+    except OSError:
+        pass
+    PROGRESS.write_text(text, encoding="utf-8")
 
 
 # ---------------------------------------------------------------- 元数据
@@ -492,7 +502,8 @@ def knowledge():
 
 @app.get("/api/progress")
 def get_progress():
-    p = read_progress()
+    with _progress_lock:
+        p = read_progress()
     stars = [k for k, v in p["questions"].items() if v.get("starred")]
     return {"progress": p, "starred": stars,
             "counts": {

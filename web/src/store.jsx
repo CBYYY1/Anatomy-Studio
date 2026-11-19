@@ -190,15 +190,23 @@ export function StoreProvider({ children }) {
         const r = await api.answer({ id: q.id, ok, picked });
         const rec = r.record;
         setProgress((prev) => {
-          const next = { ...prev, questions: { ...prev.questions, [q.id]: rec } };
+          const nextQuestions = { ...prev.questions, [q.id]: rec };
+          const next = { ...prev, questions: nextQuestions };
           const day = TODAY();
-          const d = next.daily[day] || { n: 0, ok: 0 };
-          // 后端已写盘，这里同步前端计数（避免二次请求）
+          const d = r.day || next.daily[day] || { n: 0, ok: 0 };
           next.daily = { ...next.daily, [day]: d };
+          const vals = Object.values(nextQuestions);
+          setCounts({
+            seen: vals.filter((v) => v.seen).length,
+            wrong: vals.filter((v) => v.error_count).length,
+            starred: vals.filter((v) => v.starred).length,
+            mastered: vals.filter((v) => (v.consecutive_correct || 0) >= 3).length,
+          });
           return next;
         });
-        await refreshProgress();
-        await refreshCram(0);
+        // 后台静默同步，不阻塞判分也不触发误报弹窗
+        refreshProgress().catch(() => {});
+        refreshCram(0).catch(() => {});
         return { ok, rec };
       } catch (e) {
         flash(`进度保存失败：${e.message}`, "bad");
