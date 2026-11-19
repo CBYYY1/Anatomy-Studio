@@ -168,8 +168,11 @@ def extract_images(text, by_name, by_path, limit=MAX_IMAGES):
 
 VERSION_PATH = os.path.join(OUT, "version.json")
 
-APP_RELEASE_NOTES = ("首个正式版本发布：支持双轨解析、选项矩阵与考前急救队列。")
-BANK_CHANGELOG = "更新章节笔记映射与靶向解析缓存"
+APP_RELEASE_NOTES = (
+    "支持应用一键自动更新与热重启、错题存量与突击队列完整概览、"
+    "解除 20 题抢救上限、同步最新章节笔记映射。"
+)
+BANK_CHANGELOG = "同步最新 Obsidian 章节笔记映射、图谱与靶向解析缓存"
 
 
 def _read_old_manifest():
@@ -229,13 +232,15 @@ def write_version_manifest(questions, summary):
     except Exception:                                  # noqa: BLE001
         pass
 
+    # 客户端版本号递增时，使用最新 APP_RELEASE_NOTES
+    use_new_notes = (old.get("app_version") != app_ver) or not old.get("app_release_notes")
     manifest = {
         "app_version": app_ver,
-        "app_release_notes": old.get("app_release_notes") or APP_RELEASE_NOTES,
+        "app_release_notes": APP_RELEASE_NOTES if use_new_notes else old.get("app_release_notes"),
         "release_url": old.get("release_url") or f"https://github.com/{repo}/releases",
         "bank_version": _next_bank_version(old.get("bank_version") or ""),
         "bank_updated_at": time.strftime("%Y-%m-%d %H:%M:%S"),
-        "bank_changelog": old.get("bank_changelog") or BANK_CHANGELOG,
+        "bank_changelog": BANK_CHANGELOG,
         "stats": {
             "total_questions": len(questions or []),
             "matched_notes": len(notes_set),
@@ -275,6 +280,28 @@ def build():
 
     by_name, by_path = index_vault_media()
     log(f"[4/6] 媒体索引 {len(by_path)} 个文件（同名索引 {len(by_name)}）")
+
+    # 保留本地已由大模型生成并落盘的 AI 版 option_matrix（避免重建题库时被规则片段覆盖）
+    existing_ai_matrix = {}
+    old_q_path = os.path.join(OUT, "questions.json")
+    if os.path.isfile(old_q_path):
+        try:
+            for oq in json.loads(read(old_q_path)):
+                om_old = oq.get("obsidian_match") or {}
+                if om_old.get("option_matrix_ai") and om_old.get("option_matrix"):
+                    existing_ai_matrix[oq["id"]] = dict(om_old["option_matrix"])
+        except Exception:
+            pass
+    ta_path = os.path.join(OUT, "targeted_analysis.json")
+    if os.path.isfile(ta_path):
+        try:
+            for qid_k, ta_v in json.loads(read(ta_path)).items():
+                if isinstance(ta_v, dict) and ta_v.get("option_matrix"):
+                    existing_ai_matrix.setdefault(qid_k, dict(ta_v["option_matrix"]))
+        except Exception:
+            pass
+    if existing_ai_matrix:
+        log(f"      已加载本地 AI 选项矩阵缓存 {len(existing_ai_matrix)} 题（重建时自动保留）")
 
     out_choice, out_model = [], []
     stats = dict.fromkeys(
@@ -447,8 +474,24 @@ def build():
             # 上下文窗口可能截掉了图注，退回整节找
             images = extract_images(sec.merged, by_name, by_path)
 
+        qid_str = f"anat_{qid:04d}"
+        is_ai_matrix = False
+        if qid_str in existing_ai_matrix:
+            opt_matrix = existing_ai_matrix[qid_str]
+            is_ai_matrix = True
+
+        obs_match = {
+            "matched_note": sec.path,
+            "heading": sec.heading,
+            "raw_markdown_context": ctx_text,
+            "images": images,
+            "option_matrix": opt_matrix,
+        }
+        if is_ai_matrix:
+            obs_match["option_matrix_ai"] = True
+
         item = {
-            "id": f"anat_{qid:04d}",
+            "id": qid_str,
             "type": "single" if leixing == 1 else "multiple",
             "module": module,
             "chapter": chapter,
@@ -457,13 +500,7 @@ def build():
             "options": options,
             "answer": answer,
             "keywords": keywords,
-            "obsidian_match": {
-                "matched_note": sec.path,
-                "heading": sec.heading,
-                "raw_markdown_context": ctx_text,
-                "images": images,
-                "option_matrix": opt_matrix,
-            },
+            "obsidian_match": obs_match,
             "meta": {
                 "source_id": qid,
                 "zjid": q.get("zjid"),

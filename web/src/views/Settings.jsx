@@ -544,7 +544,7 @@ export default function Settings() {
     try {
       await api.resetProgress(true, scope);
       await refreshProgress();
-      await refreshCram(20);
+      await refreshCram(0);
       flash(scope === "wrong" ? "错题本已清空" : "全部学习数据已重置");
       setConfirmBox(null);
     } catch (e) {
@@ -575,7 +575,7 @@ export default function Settings() {
     try {
       const r = await api.importProgress(file);
       await refreshProgress();
-      await refreshCram(20);
+      await refreshCram(0);
       flash(`已导入 ${r.imported} 条记录${r.skipped ? `，跳过 ${r.skipped} 条题库里没有的题` : ""}`);
     } catch (e) {
       flash(`导入失败：${e.message}`, "bad");
@@ -1161,9 +1161,21 @@ function DataSection({
   const u = cfg.update || {};
   const [upd, setUpd] = useState(null);
   const [checking, setChecking] = useState(false);
+  const [appUpd, setAppUpd] = useState(null);
+  const [appErr, setAppErr] = useState("");
+  const pollRef = useRef(null);
+  const reconnectRef = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      if (pollRef.current) clearInterval(pollRef.current);
+      if (reconnectRef.current) clearInterval(reconnectRef.current);
+    };
+  }, []);
 
   const runCheck = async (fresh = true) => {
     setChecking(true);
+    setAppErr("");
     try {
       setUpd(await api.updaterCheck(fresh));
     } catch (e) {
@@ -1172,6 +1184,67 @@ function DataSection({
       setChecking(false);
     }
   };
+
+  const waitAndReload = () => {
+    if (reconnectRef.current) clearInterval(reconnectRef.current);
+    const t0 = Date.now();
+    setTimeout(() => {
+      reconnectRef.current = setInterval(async () => {
+        try {
+          const m = await api.updaterMeta();
+          if (m?.app_version) {
+            clearInterval(reconnectRef.current);
+            window.location.reload();
+          }
+        } catch {
+          if (Date.now() - t0 > 45000) clearInterval(reconnectRef.current);
+        }
+      }, 1000);
+    }, 1800);
+  };
+
+  const runAppUpdate = async () => {
+    setAppErr("");
+    setAppUpd({ running: true, phase: "check", percent: 5, message: "正在启动自动更新…" });
+    try {
+      const initial = await api.applyAppUpdate();
+      setAppUpd(initial);
+    } catch (e) {
+      setAppUpd(null);
+      setAppErr(`启动自动更新失败：${e.message || e}`);
+      return;
+    }
+    if (pollRef.current) clearInterval(pollRef.current);
+    pollRef.current = setInterval(async () => {
+      try {
+        const s = await api.appUpdateStatus();
+        setAppUpd(s);
+        if (s.phase === "restarting" || s.restarting || s.phase === "done") {
+          clearInterval(pollRef.current);
+          waitAndReload();
+        } else if (!s.running && s.phase === "error") {
+          clearInterval(pollRef.current);
+          setAppErr(s.message || s.result?.detail || "自动更新失败");
+        }
+      } catch {
+        clearInterval(pollRef.current);
+        setAppUpd((prev) => ({
+          ...(prev || {}),
+          running: false,
+          phase: "restarting",
+          percent: 100,
+          restarting: true,
+          message: "更新完成，正在自动重启应用...",
+        }));
+        waitAndReload();
+      }
+    }, 450);
+  };
+
+  const hasAppUpdate = !!(upd?.has_new_app_release || upd?.has_app_update);
+  const isAppUpdating = !!(appUpd?.running || appUpd?.restarting);
+  const appPct = Math.max(0, Math.min(100, Number(appUpd?.percent) || 0));
+  const releaseUrl = appUpd?.manual_url || upd?.release?.url || (u.repo ? `https://github.com/${u.repo}/releases` : "");
 
   return (
     <>
@@ -1254,16 +1327,57 @@ function DataSection({
                 )}
               </p>
             )}
-            {upd.release?.url && (
-              <a
-                href={upd.release.url}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-1 inline-flex items-center gap-1 text-apple-blue hover:underline"
-              >
-                打开 Releases
-              </a>
+
+            {appUpd && (appUpd.running || appUpd.restarting) && (
+              <div className="mt-2.5 rounded-xl border border-apple-blue/25 bg-apple-blue/[0.06] p-2.5">
+                <div className="flex items-center justify-between text-[11.5px]">
+                  <span className="flex items-center gap-1.5 font-medium text-apple-blue">
+                    <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                    {appUpd.message || "正在更新应用…"}
+                  </span>
+                  <span className="tabular-nums text-ink-900/60">{appPct}%</span>
+                </div>
+                <div className="mt-1.5 h-1.5 w-full overflow-hidden rounded-full bg-ink-950/10">
+                  <div
+                    className="h-full rounded-full bg-gradient-to-r from-apple-blue to-apple-teal transition-all duration-300"
+                    style={{ width: `${Math.max(6, appPct)}%` }}
+                  />
+                </div>
+              </div>
             )}
+
+            {appErr && (
+              <p className="mt-2 rounded-xl border border-apple-red/30 bg-apple-red/[0.08] px-3 py-1.5 text-[11.5px] text-apple-red">
+                {appErr}
+              </p>
+            )}
+
+            <div className="mt-2.5 flex flex-wrap items-center gap-2">
+              {hasAppUpdate && (
+                <button
+                  onClick={runAppUpdate}
+                  disabled={isAppUpdating}
+                  className="btn-primary px-3 py-1.5 text-[12px] disabled:opacity-60"
+                >
+                  {isAppUpdating ? <Loader2 className="h-3 w-3 animate-spin" /> : <Zap className="h-3 w-3" />}
+                  {appUpd?.restarting
+                    ? "更新完成，正在自动重启应用..."
+                    : appUpd?.running
+                      ? `正在更新 (${appPct}%)…`
+                      : "⚡ 一键自动更新并重启"}
+                </button>
+              )}
+              {releaseUrl && (
+                <a
+                  href={releaseUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-ghost px-3 py-1.5 text-[12px]"
+                >
+                  手动前往 GitHub 下载
+                </a>
+              )}
+            </div>
           </div>
         )}
       </Group>

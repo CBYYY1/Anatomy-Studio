@@ -73,7 +73,7 @@ export function StoreProvider({ children }) {
     setTimeout(() => setToast((t) => (t && Date.now() - t.at >= 2400 ? null : t)), 2600);
   }, []);
 
-  const refreshCram = useCallback(async (n = 20) => {
+  const refreshCram = useCallback(async (n = 0) => {
     try {
       const r = await api.cram(n);
       setCramItems(r.items || []);
@@ -105,7 +105,7 @@ export function StoreProvider({ children }) {
       const r = await api.putSettings(patch);
       setSettings({ ...DEFAULT_SETTINGS, ...r });
       // 设置影响急救池（cram_mastery_streak）与题库状态，顺手刷新
-      refreshCram(20).catch(() => {});
+      refreshCram(0).catch(() => {});
       return r;
     },
     [refreshCram]
@@ -123,7 +123,7 @@ export function StoreProvider({ children }) {
       setList(qs);
       detailCache.current.clear();      // 题库变了，旧详情缓存一律作废
       await refreshProgress();
-      await refreshCram(20);
+      await refreshCram(0);
       return true;
     } catch (e) {
       flash(`刷新失败：${e.message || e}`, "bad");
@@ -141,7 +141,7 @@ export function StoreProvider({ children }) {
         setList(qs);
         await refreshSettings();
         await refreshProgress();
-        await refreshCram(20);
+        await refreshCram(0);
         setReady(true);
       } catch (e) {
         if (alive) setError(e.message || String(e));
@@ -198,7 +198,7 @@ export function StoreProvider({ children }) {
           return next;
         });
         await refreshProgress();
-        await refreshCram(20);
+        await refreshCram(0);
         return { ok, rec };
       } catch (e) {
         flash(`进度保存失败：${e.message}`, "bad");
@@ -213,7 +213,7 @@ export function StoreProvider({ children }) {
       try {
         const r = await api.star(id);
         await refreshProgress();
-        await refreshCram(20);
+        await refreshCram(0);
         flash(r.starred ? "已加入收藏" : "已取消收藏");
         return r.starred;
       } catch (e) {

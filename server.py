@@ -571,12 +571,13 @@ def save_session(payload: dict):
 
 
 @app.get("/api/cram")
-def cram(n: int = Query(20, ge=1, le=100)):
+def cram(n: int = Query(0, ge=0, le=5000)):
     """考前智能突击队列。
 
     Priority = ErrorCount * 2 - ConsecutiveCorrect + (Starred ? 1.5 : 0)
     连续答对 `cram_mastery_streak` 次（默认 3，可在设置里改）视为「暂时掌握」，
     移出急救池（但不会删记录）。
+    n=0（默认）表示不截断，返回全部待抢救题目。
     """
     streak_gate = int(CFG.quiz_prefs().get("cram_mastery_streak") or 3)
     qs = {q["id"]: q for q in questions()}
@@ -597,8 +598,9 @@ def cram(n: int = Query(20, ge=1, le=100)):
                      "starred": star, "last": r.get("last", 0),
                      "chapter": qs[qid]["chapter"], "stem": qs[qid]["stem"]})
     pool.sort(key=lambda x: (-x["priority"], -x["error_count"], -x["last"]))
-    return {"n": n, "total": len(pool), "streak_gate": streak_gate,
-            "items": pool[:n]}
+    items = pool[:n] if n and n > 0 else pool
+    return {"n": n or len(pool), "total": len(pool), "streak_gate": streak_gate,
+            "items": items}
 
 
 # ---------------------------------------------------------------- Obsidian 媒体
@@ -1329,10 +1331,27 @@ def updater_status():
 def updater_sync_bank(payload: dict | None = None):
     """一键热更新题库与配图。绝不触碰 user_progress.json / user_config.json 的
     llm 与 knowledge_base 段。"""
+    global _updater_check_cache
     body = payload or {}
     if body.get("check_only"):
         return UPD.check()
-    return UPD.sync_bank()
+    res = UPD.sync_bank()
+    _updater_check_cache = ({}, 0.0)
+    return res
+
+
+@app.get("/api/updater/app-update-status")
+def updater_app_update_status():
+    """应用程序本体自动更新进度查询（前端轮询）。"""
+    return UPD.app_update_state()
+
+
+@app.post("/api/updater/apply-app-update")
+def updater_apply_app_update(payload: dict | None = None):
+    """一键自动更新应用程序本体（便携版下载解压热替换重启 / 源码版 git pull）。"""
+    global _updater_check_cache
+    _updater_check_cache = ({}, 0.0)
+    return UPD.start_app_update(payload or {})
 
 
 # ---------------------------------------------------------------- 前端静态文件

@@ -66,7 +66,7 @@ export default function App() {
       <Shell>
         <div className="flex h-[70vh] flex-col items-center justify-center gap-4">
           <Loader2 className="h-7 w-7 animate-spin text-ink-900/48" />
-          <p className="text-[13px] text-ink-900/48">正在加载 1917 道题与 Obsidian 证据…</p>
+          <p className="text-[13px] text-ink-900/48">正在加载题库数据…</p>
         </div>
       </Shell>
     );

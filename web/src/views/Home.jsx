@@ -1,17 +1,21 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import {
-  ArrowRight, Flame, Layers, Sparkles, TrendingUp, Zap,
+  ArrowRight, ChevronRight, Flame, Layers, TrendingUp, Zap,
 } from "lucide-react";
 import { useStore } from "../store";
-import { Ring, Stat, Heat, Bar } from "../components/Bits";
+import { Ring, Heat, Bar } from "../components/Bits";
 import Chart, { roseOption, rankOption } from "../components/Chart";
+import { WrongOverviewModal, CramOverviewModal } from "../components/OverviewModals";
 import { api } from "../api";
 
 export default function Home({ go }) {
-  const { stats, progress, cramItems, list, meta, flash } = useStore();
+  const { stats, progress, cramItems, list, flash } = useStore();
   const [kw, setKw] = useState([]);
   const [loadingCram, setLoadingCram] = useState(false);
+  const [cramLimit, setCramLimit] = useState("50"); // "20" | "50" | "100" | "all"
+  const [wrongOpen, setWrongOpen] = useState(false);
+  const [cramOpen, setCramOpen] = useState(false);
 
   // 失分概念 Top：从进度里取出错过的题，按关键词累计错误次数
   useEffect(() => {
@@ -75,10 +79,17 @@ export default function Home({ go }) {
   const today = todayRec.n || 0;
   const todayOk = todayRec.ok || 0;
 
+  const cramTargetCount = useMemo(() => {
+    if (!cramItems.length) return 0;
+    if (cramLimit === "all") return cramItems.length;
+    return Math.min(Number(cramLimit) || 50, cramItems.length);
+  }, [cramItems.length, cramLimit]);
+
   async function startCram() {
     setLoadingCram(true);
     try {
-      const r = await api.cram(20);
+      const wantN = cramLimit === "all" ? 0 : Number(cramLimit) || 50;
+      const r = await api.cram(wantN);
       if (!r.items.length) {
         flash("急救池是空的，先去练一组吧");
         go("practice");
@@ -105,11 +116,6 @@ export default function Home({ go }) {
           <p className="mt-2 text-[13px] font-normal text-ink-900/40 md:text-[14.5px]">
             —— 卡尔·萨根
           </p>
-          <p className="mt-4 max-w-xl text-[14px] leading-relaxed text-ink-900/52">
-            {meta?.total} 道真题已与你的 Obsidian 笔记逐题挂载
-            {meta?.stats?.with_images ? `，${meta.stats.with_images} 道带图谱/切片` : ""}
-            。每个错题都会告诉你考的是哪一页、哪一段。
-          </p>
         </div>
         <div className="flex shrink-0 items-center gap-3">
           <button className="btn-primary px-5 py-2.5" onClick={() => go("practice")}>
@@ -124,7 +130,7 @@ export default function Home({ go }) {
 
       {/* ---------------- Bento */}
       <div className="grid grid-cols-2 gap-4 md:grid-cols-12">
-        {/* 主卡：覆盖率环 + 突击入口 */}
+        {/* 主卡：覆盖率环 + 刷题进度 */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -161,14 +167,14 @@ export default function Home({ go }) {
           <div className="mt-auto pt-4">
             <div className="grid grid-cols-3 gap-2 border-t border-ink-950/8 pt-4">
               <MiniNum label="累计作答" value={stats.attempts} />
-              <MiniNum label="错题存量" value={stats.wrong} tone="red" />
+              <MiniNum
+                label="错题存量"
+                value={stats.wrong}
+                tone="red"
+                onClick={() => setWrongOpen(true)}
+                title="点击查看错题存量概览"
+              />
               <MiniNum label="收藏" value={stats.starred} tone="yellow" />
-            </div>
-            <div className="mt-4 flex items-center gap-2 rounded-xl bg-ink-950/[0.03] px-3 py-2.5">
-              <Sparkles className="h-3.5 w-3.5 shrink-0 text-apple-blue" />
-              <p className="text-[11.5px] leading-snug text-ink-900/52">
-                每道题的解析抽屉里，都能看到你的笔记原文与 AI 靶向破题。
-              </p>
             </div>
           </div>
         </motion.div>
@@ -180,17 +186,34 @@ export default function Home({ go }) {
           transition={{ delay: 0.06 }}
           className="card col-span-2 flex flex-col md:col-span-4"
         >
-          <div className="flex items-center justify-between">
+          <div
+            onClick={() => setCramOpen(true)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                setCramOpen(true);
+              }
+            }}
+            className="group -mx-2 -mt-1 flex cursor-pointer items-center justify-between rounded-xl px-2 py-1 transition-colors hover:bg-ink-950/[0.03]"
+            title="点击展开突击队列完整概览"
+          >
             <p className="label flex items-center gap-1.5">
               <Zap className="h-3 w-3 text-apple-yellow" />
               考前突击队列
+              <ChevronRight className="h-3 w-3 text-ink-900/32 transition-transform group-hover:translate-x-0.5 group-hover:text-ink-900/70" />
             </p>
-            <span className="chip border-apple-yellow/25 bg-apple-yellow/10 text-apple-yellow/90 tabular-nums">
+            <span className="chip border-apple-yellow/25 bg-apple-yellow/10 text-apple-yellow/90 tabular-nums transition-colors group-hover:border-apple-yellow/45">
               {cramItems.length}
+              <span className="ml-0.5 text-[10px] opacity-75">查看全部</span>
             </span>
           </div>
 
-          <p className="mt-2.5 text-[12.5px] leading-relaxed text-ink-900/48">
+          <p
+            onClick={() => setCramOpen(true)}
+            className="mt-2 cursor-pointer text-[12.5px] leading-relaxed text-ink-900/48"
+          >
             权重 = 错误次数 × 2 − 连对 + 收藏加成。连对 3 次自动毕业。
           </p>
 
@@ -217,16 +240,51 @@ export default function Home({ go }) {
                 </span>
               </button>
             ))}
+            {cramItems.length > 3 && (
+              <button
+                onClick={() => setCramOpen(true)}
+                className="flex w-full items-center justify-center gap-1 rounded-lg py-1 text-[11.5px] text-ink-900/46 transition-colors hover:bg-ink-950/[0.035] hover:text-ink-900/80"
+              >
+                展开全部 {cramItems.length} 道待抢救题目
+                <ChevronRight className="h-3 w-3" />
+              </button>
+            )}
           </div>
 
-          <button
-            onClick={startCram}
-            disabled={loadingCram}
-            className="btn-primary mt-auto w-full py-2.5 disabled:opacity-50"
-          >
-            <Flame className="h-3.5 w-3.5" />
-            抢救 20 个死角
-          </button>
+          <div className="mt-auto pt-3">
+            <div className="mb-2 flex items-center justify-between gap-1.5">
+              <span className="text-[11px] text-ink-900/42">单次抢救：</span>
+              <div className="flex rounded-full border border-ink-950/10 bg-ink-950/[0.035] p-0.5">
+                {[
+                  ["20", "20"],
+                  ["50", "50"],
+                  ["100", "100"],
+                  ["all", "全部"],
+                ].map(([k, label]) => (
+                  <button
+                    key={k}
+                    type="button"
+                    onClick={() => setCramLimit(k)}
+                    className={`rounded-full px-2 py-0.5 text-[11px] font-medium tabular-nums transition-colors ${
+                      cramLimit === k
+                        ? "bg-white text-ink-900 shadow-sm"
+                        : "text-ink-900/48 hover:text-ink-900/78"
+                    }`}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <button
+              onClick={startCram}
+              disabled={loadingCram}
+              className="btn-primary w-full py-2.5 disabled:opacity-50"
+            >
+              <Flame className="h-3.5 w-3.5" />
+              抢救 {cramTargetCount || cramItems.length} 个死角
+            </button>
+          </div>
         </motion.div>
 
         {/* 热力 + 各篇正确率 */}
@@ -306,17 +364,38 @@ export default function Home({ go }) {
         </motion.div>
       </div>
 
-      {/* 底部提示 */}
-      <div className="flex items-center justify-center gap-2 pt-6 text-[11.5px] text-ink-900/32">
-        <Sparkles className="h-3 w-3" />
-        题库来自「解剖助手」客户端，证据来自 {meta?.vault_name} · 完全离线运行
-      </div>
+      {/* 弹窗：错题存量概览 / 突击队列完整概览 */}
+      <WrongOverviewModal open={wrongOpen} onClose={() => setWrongOpen(false)} go={go} />
+      <CramOverviewModal
+        open={cramOpen}
+        onClose={() => setCramOpen(false)}
+        go={go}
+        defaultLimit={cramLimit}
+      />
     </div>
   );
 }
 
-function MiniNum({ label, value, tone = "white" }) {
+function MiniNum({ label, value, tone = "white", onClick, title }) {
   const tones = { white: "text-ink-900", red: "text-apple-red", yellow: "text-apple-yellow" };
+  if (typeof onClick === "function") {
+    return (
+      <button
+        type="button"
+        onClick={onClick}
+        title={title}
+        className="group -mx-2 -my-1.5 rounded-xl px-2 py-1.5 text-left transition-colors hover:bg-apple-red/[0.06]"
+      >
+        <p className="flex items-center gap-0.5 text-[10.5px] text-ink-900/40 group-hover:text-apple-red/80">
+          {label}
+          <ChevronRight className="h-2.5 w-2.5 transition-transform group-hover:translate-x-0.5" />
+        </p>
+        <p className={`mt-0.5 text-[17px] font-semibold tabular-nums ${tones[tone]}`}>
+          {value}
+        </p>
+      </button>
+    );
+  }
   return (
     <div>
       <p className="text-[10.5px] text-ink-900/40">{label}</p>

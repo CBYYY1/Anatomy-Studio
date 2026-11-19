@@ -1,18 +1,18 @@
 {
-  "app_version": "2.1.0",
-  "app_release_notes": "首个正式版本发布：支持双轨解析、选项矩阵与考前急救队列。",
+  "app_version": "2.2.0",
+  "app_release_notes": "支持应用一键自动更新与热重启、错题存量与突击队列完整概览、解除 20 题抢救上限、同步最新章节笔记映射。",
   "release_url": "https://github.com/CBYYY1/Anatomy-Studio/releases",
-  "bank_version": "2026.11.17.2",
-  "bank_updated_at": "2026-11-17 21:23:44",
-  "bank_changelog": "更新章节笔记映射与靶向解析缓存",
+  "bank_version": "2026.11.19.1",
+  "bank_updated_at": "2026-11-19 14:25:43",
+  "bank_changelog": "同步最新 Obsidian 章节笔记映射、图谱与靶向解析缓存",
   "stats": {
     "total_questions": 1917,
-    "matched_notes": 163,
-    "media_count": 196,
+    "matched_notes": 222,
+    "media_count": 211,
     "choice": 1917,
     "single": 1578,
     "multiple": 339,
-    "with_images": 289,
+    "with_images": 243,
     "negation_warning": 158
   }
 }

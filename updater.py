@@ -607,3 +607,429 @@ def _sync_bank_inner() -> dict:
         "backup": backup.name if backup else "",
         "snapshot": len(snap_before),
     }
+
+
+# ---------------------------------------------------------------- 应用本体自动更新
+
+import subprocess
+import sys
+import threading
+import zipfile
+
+_APP_LOCK = Lock()
+_APP_STATE = {
+    "running": False,
+    "phase": "",              # check | download | extract | replace | git_pull | restarting | done | error
+    "percent": 0,             # 0..100
+    "downloaded_bytes": 0,
+    "total_bytes": 0,
+    "message": "",
+    "mode": "",               # portable | source
+    "restarting": False,
+    "manual_url": "",
+    "started": 0.0,
+    "finished": 0.0,
+    "result": None,
+}
+
+# 镜像加速队列（优先 ghp.ci / mirror.ghproxy.com，配合直连回退）
+_RELEASE_PROXIES = ("https://ghp.ci/", "https://mirror.ghproxy.com/")
+
+
+def _set_app(**kw) -> None:
+    with _APP_LOCK:
+        _APP_STATE.update(kw)
+
+
+def app_update_state() -> dict:
+    with _APP_LOCK:
+        return dict(_APP_STATE)
+
+
+def _resolve_release_zip_urls(repo: str, target_ver: str = "",
+                              remote_manifest: dict | None = None) -> tuple[list[str], str]:
+    """解析最新 Release 便携包下载地址列表（去重保序）与手动下载页地址。"""
+    manual_url = ((remote_manifest or {}).get("release_url")
+                  or f"https://github.com/{repo}/releases")
+    urls: list[str] = []
+
+    def add(u: str) -> None:
+        u = (u or "").strip()
+        if u and u not in urls:
+            urls.append(u)
+
+    if remote_manifest:
+        for k in ("download_url", "portable_url", "asset_url"):
+            if remote_manifest.get(k):
+                add(str(remote_manifest[k]))
+
+    # 查询 GitHub Releases API（尝试直连与系统代理）
+    api_url = f"https://api.github.com/repos/{repo}/releases/latest"
+    for px in (None, _SYSTEM):
+        try:
+            raw = _get(api_url, timeout=8,
+                       headers={"Accept": "application/vnd.github+json"},
+                       proxy=px)
+            rel = json.loads(raw.decode("utf-8"))
+            if isinstance(rel, dict):
+                if rel.get("html_url"):
+                    manual_url = rel["html_url"]
+                if not target_ver and rel.get("tag_name"):
+                    target_ver = str(rel["tag_name"])
+                assets = rel.get("assets") or []
+                # 优先匹配 AnatomyStudio_Portable*.zip，其次任意 .zip
+                for a in assets:
+                    name = str(a.get("name") or "")
+                    dl = str(a.get("browser_download_url") or "")
+                    if dl and name.lower().startswith("anatomystudio_portable") and name.lower().endswith(".zip"):
+                        add(dl)
+                for a in assets:
+                    name = str(a.get("name") or "")
+                    dl = str(a.get("browser_download_url") or "")
+                    if dl and name.lower().endswith(".zip"):
+                        add(dl)
+                break
+        except Exception:                              # noqa: BLE001
+            continue
+
+    # 常规 Release Asset 下载地址兜底（绕过 API 限流）
+    ver_clean = (target_ver or "").strip().lstrip("vV")
+    if ver_clean:
+        tag = f"v{ver_clean}"
+        add(f"https://github.com/{repo}/releases/download/{tag}/AnatomyStudio_Portable_v{ver_clean}.zip")
+        add(f"https://github.com/{repo}/releases/download/{tag}/AnatomyStudio_Portable.zip")
+    add(f"https://github.com/{repo}/releases/latest/download/AnatomyStudio_Portable.zip")
+    if ver_clean:
+        add(f"https://github.com/{repo}/releases/latest/download/AnatomyStudio_Portable_v{ver_clean}.zip")
+
+    return urls, manual_url
+
+
+def _download_zip_with_progress(asset_urls: list[str], dest_zip: Path) -> str:
+    """配合国内镜像加速队列（ghp.ci、mirror.ghproxy.com）与直连回退，流式下载 zip 并实时上报进度。"""
+    candidates: list[tuple[str, object]] = []
+    for base in asset_urls:
+        for p in _RELEASE_PROXIES:
+            candidates.append((f"{p}{base}", _SYSTEM))
+            candidates.append((f"{p}{base}", None))
+        candidates.append((base, _SYSTEM))
+        candidates.append((base, None))
+
+    errors: list[str] = []
+    dest_zip.parent.mkdir(parents=True, exist_ok=True)
+    tmp_zip = dest_zip.with_suffix(".part")
+
+    for url, px in candidates:
+        host = url.split("/")[2] if "://" in url else url[:32]
+        tag = "直连" if px is None else "代理"
+        try:
+            _set_app(phase="download",
+                     message=f"正在连接下载源（{host}·{tag}）…")
+            req = urllib.request.Request(
+                url,
+                headers={"User-Agent": _ua(), "Accept": "application/octet-stream,*/*"},
+            )
+            if px is _SYSTEM:
+                opener = urllib.request.urlopen
+            else:
+                opener = urllib.request.build_opener(
+                    urllib.request.ProxyHandler({"http": px, "https": px} if px else {})
+                ).open
+
+            with opener(req, timeout=25) as resp:
+                total = int(resp.headers.get("Content-Length") or 0)
+                downloaded = 0
+                with tmp_zip.open("wb") as fh:
+                    while True:
+                        chunk = resp.read(64 * 1024)
+                        if not chunk:
+                            break
+                        fh.write(chunk)
+                        downloaded += len(chunk)
+                        if total > 0:
+                            pct = min(82, 10 + int((downloaded / total) * 72))
+                            msg = (f"正在下载更新包… {downloaded / 1048576:.1f} / "
+                                   f"{total / 1048576:.1f} MB ({pct}%)")
+                        else:
+                            pct = min(80, 12 + int(downloaded / (1024 * 1024)))
+                            msg = f"正在下载更新包… {downloaded / 1048576:.1f} MB"
+                        _set_app(phase="download", percent=pct,
+                                 downloaded_bytes=downloaded, total_bytes=total,
+                                 message=msg)
+
+            if not tmp_zip.is_file() or tmp_zip.stat().st_size < 1024:
+                raise RuntimeError("下载到的文件过小或为空")
+            if not zipfile.is_zipfile(tmp_zip):
+                raise RuntimeError("下载到的文件不是有效的 ZIP 压缩包")
+            os.replace(tmp_zip, dest_zip)
+            return url
+        except urllib.error.HTTPError as exc:
+            errors.append(f"{host}·{tag}: HTTP {exc.code}")
+        except Exception as exc:                       # noqa: BLE001
+            errors.append(f"{host}·{tag}: {type(exc).__name__}")
+        finally:
+            try:
+                tmp_zip.unlink(missing_ok=True)
+            except OSError:
+                pass
+
+    raise RuntimeError("无法下载最新便携包（" + "；".join(errors[:6]) + "）")
+
+
+def _generate_apply_update_bat(app_root: Path, extracted_root: Path) -> Path:
+    """动态生成同级批处理脚本 _apply_update.bat：
+    等待 2 秒释放文件锁 -> 覆盖程序文件（严格排除 user_config.json 与 user_progress.json）
+    -> 重启新版本 -> 清理 _update_tmp 与自身脚本。
+    """
+    bat_path = app_root / "_apply_update.bat"
+    rel_src = os.path.relpath(extracted_root, app_root)
+    script = f"""@echo off
+chcp 65001 >nul
+title Anatomy Studio Auto-Updater
+cd /d "%~dp0"
+echo.
+echo   ========================================================
+echo     Anatomy Studio 正在应用新版本更新，请稍候 (约 2 秒)...
+echo   ========================================================
+echo.
+timeout /t 2 /nobreak >nul
+
+robocopy "%~dp0{rel_src}" "%~dp0." /E /XF "user_config.json" "user_progress.json" "_apply_update.bat" /XD "_update_tmp" ".git" >nul
+
+echo   更新完成，正在重新启动 Anatomy Studio...
+if exist "%~dp0AnatomyStudio.exe" (
+    start "" "%~dp0AnatomyStudio.exe"
+) else if exist "%~dp0启动 Anatomy Studio.bat" (
+    start "" "%~dp0启动 Anatomy Studio.bat"
+)
+
+rmdir /s /q "%~dp0_update_tmp" 2>nul
+del "%~f0" & exit
+"""
+    bat_path.write_text(script.replace("\r\n", "\n").replace("\n", "\r\n"),
+                        encoding="utf-8", newline="")
+    return bat_path
+
+
+def _apply_portable_update(repo: str, target_ver: str,
+                           remote_manifest: dict | None, manual_url: str) -> dict:
+    """Windows 便携版无感热替换与重启。"""
+    app_root = CFG.HERE
+    tmp_dir = app_root / "_update_tmp"
+    if tmp_dir.exists():
+        shutil.rmtree(tmp_dir, ignore_errors=True)
+    tmp_dir.mkdir(parents=True, exist_ok=True)
+
+    asset_urls, resolved_manual = _resolve_release_zip_urls(repo, target_ver, remote_manifest)
+    manual_url = resolved_manual or manual_url
+    _set_app(manual_url=manual_url, percent=8,
+             message="正在获取最新 Release 便携包下载地址…")
+
+    zip_path = tmp_dir / "AnatomyStudio_Portable.zip"
+    used_url = _download_zip_with_progress(asset_urls, zip_path)
+
+    _set_app(phase="extract", percent=86,
+             message="正在解压新版本并校验个人数据隔离…")
+    extract_dir = tmp_dir / "extracted"
+    extract_dir.mkdir(parents=True, exist_ok=True)
+    with zipfile.ZipFile(zip_path, "r") as zf:
+        zf.extractall(extract_dir)
+
+    # 定位解压后的根目录（兼容顶层套一层 AnatomyStudio_Portable/ 的情况）
+    children = [p for p in extract_dir.iterdir() if p.name != "__MACOSX"]
+    src_root = children[0] if (len(children) == 1 and children[0].is_dir()) else extract_dir
+
+    # 双重保险：从待覆盖源目录里直接删掉 user_config.json 与 user_progress.json
+    for guarded in ("user_config.json", "user_progress.json"):
+        g_path = src_root / "data" / guarded
+        if g_path.exists():
+            try:
+                g_path.unlink()
+            except OSError:
+                pass
+
+    # 同步更新 version.json，保证重启后版本号与远端一致
+    if remote_manifest:
+        try:
+            (src_root / "data").mkdir(parents=True, exist_ok=True)
+            _write_json_atomic(src_root / "data" / "version.json", remote_manifest)
+            _write_json_atomic(CFG.DATA / "version.json", remote_manifest)
+        except Exception:                              # noqa: BLE001
+            pass
+
+    _set_app(phase="replace", percent=95,
+             message="正在拉起热替换脚本并准备重启应用…")
+    bat_path = _generate_apply_update_bat(app_root, src_root)
+
+    res = {
+        "ok": True,
+        "mode": "portable",
+        "restarting": True,
+        "source": used_url,
+        "manual_url": manual_url,
+        "detail": "更新完成，正在自动重启应用...",
+    }
+    _set_app(running=False, phase="restarting", percent=100,
+             restarting=True, message=res["detail"],
+             finished=time.time(), result=res)
+
+    # 拉起同级 _apply_update.bat，并在 1.2 秒后优雅退出释放文件锁
+    creationflags = getattr(subprocess, "CREATE_NEW_CONSOLE", 0) if os.name == "nt" else 0
+    subprocess.Popen(["cmd.exe", "/c", str(bat_path)],
+                     cwd=str(app_root), creationflags=creationflags)
+    threading.Timer(1.2, lambda: os._exit(0)).start()
+    return res
+
+
+def _apply_source_update(repo: str, target_ver: str,
+                         remote_manifest: dict | None, manual_url: str) -> dict:
+    """源码运行模式兜底：检测到 .git 目录时执行 git pull --ff-only 拉取最新代码。"""
+    app_root = CFG.HERE
+    _set_app(phase="git_pull", percent=25, mode="source",
+             manual_url=manual_url,
+             message="检测到源码运行模式（.git），正在执行 git pull --ff-only…")
+
+    old_head = ""
+    try:
+        old_head = subprocess.check_output(
+            ["git", "rev-parse", "HEAD"], cwd=str(app_root),
+            text=True, encoding="utf-8", errors="replace", timeout=5
+        ).strip()
+    except Exception:                                  # noqa: BLE001
+        pass
+
+    proc = subprocess.run(
+        ["git", "pull", "--ff-only"],
+        cwd=str(app_root),
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        timeout=35,
+    )
+    if proc.returncode != 0:
+        err_text = (proc.stderr or proc.stdout or "git pull 失败").strip()
+        raise RuntimeError(
+            f"源码模式 git pull --ff-only 未能自动合并（{err_text[:180]}）。"
+            "请先提交或清理本地未提交改动，或点击下方链接前往 GitHub Releases 手动下载最新便携包。"
+        )
+
+    _set_app(phase="replace", percent=78,
+             message="代码拉取完成，正在检查前端改动与同步题库清单…")
+
+    new_head = ""
+    web_changed = False
+    try:
+        new_head = subprocess.check_output(
+            ["git", "rev-parse", "HEAD"], cwd=str(app_root),
+            text=True, encoding="utf-8", errors="replace", timeout=5
+        ).strip()
+        if old_head and new_head and old_head != new_head:
+            diff_files = subprocess.check_output(
+                ["git", "diff", "--name-only", old_head, new_head],
+                cwd=str(app_root), text=True, encoding="utf-8", errors="replace", timeout=5
+            ).splitlines()
+            web_changed = any(f.startswith("web/") for f in diff_files)
+    except Exception:                                  # noqa: BLE001
+        pass
+
+    if remote_manifest:
+        try:
+            _write_json_atomic(CFG.DATA / "version.json", remote_manifest)
+            if remote_manifest.get("app_version"):
+                CFG.APP_VERSION = str(remote_manifest["app_version"]).strip()
+        except Exception:                              # noqa: BLE001
+            pass
+
+    # 让 server 的题库缓存失效
+    try:
+        import server as S
+        with S._cache_lock:
+            S._cache.pop(str(S.QUESTIONS), None)
+    except Exception:                                  # noqa: BLE001
+        pass
+
+    hint = "（检测到 web/ 前端源码有更新，建议运行 npm run build 重新编译前端）" if web_changed else ""
+    msg = f"更新完成（git pull --ff-only 已同步最新代码）{hint}，正在自动重启应用..."
+    res = {
+        "ok": True,
+        "mode": "source",
+        "restarting": True,
+        "web_changed": web_changed,
+        "manual_url": manual_url,
+        "detail": msg,
+    }
+    _set_app(running=False, phase="restarting", percent=100,
+             restarting=True, message=msg,
+             finished=time.time(), result=res)
+    return res
+
+
+def _run_app_update(force_mode: str = "") -> dict:
+    repo = CFG.repo()
+    if not repo:
+        res = {"ok": False, "detail": "没有配置 GitHub 仓库地址"}
+        _set_app(running=False, phase="error", percent=0,
+                 message=res["detail"], finished=time.time(), result=res)
+        return res
+
+    manual_url = f"https://github.com/{repo}/releases"
+    _set_app(phase="check", percent=5, manual_url=manual_url,
+             message="正在检查远端最新版本信息…")
+
+    remote_manifest, _src = fetch_manifest()
+    target_ver = (remote_manifest or {}).get("app_version") or ""
+    if (remote_manifest or {}).get("release_url"):
+        manual_url = remote_manifest["release_url"]
+
+    is_frozen = getattr(sys, "frozen", False)
+    has_git = (CFG.HERE / ".git").exists()
+    use_portable = (force_mode == "portable") or is_frozen or (not has_git)
+
+    try:
+        if use_portable:
+            _set_app(mode="portable")
+            return _apply_portable_update(repo, target_ver, remote_manifest, manual_url)
+        return _apply_source_update(repo, target_ver, remote_manifest, manual_url)
+    except Exception as exc:                           # noqa: BLE001
+        res = {
+            "ok": False,
+            "manual_url": manual_url,
+            "detail": f"自动更新失败：{exc}",
+        }
+        _set_app(running=False, phase="error",
+                 message=res["detail"], manual_url=manual_url,
+                 finished=time.time(), result=res)
+        return res
+
+
+def start_app_update(payload: dict | None = None) -> dict:
+    """启动异步应用本体更新任务，前端通过 /api/updater/app-update-status 轮询实时进度。"""
+    cur = app_update_state()
+    if cur.get("running"):
+        return cur
+    force_mode = str((payload or {}).get("mode") or "").strip()
+    is_frozen = getattr(sys, "frozen", False)
+    has_git = (CFG.HERE / ".git").exists()
+    mode = "portable" if (force_mode == "portable" or is_frozen or not has_git) else "source"
+    repo = CFG.repo()
+    manual_url = f"https://github.com/{repo}/releases" if repo else ""
+
+    _set_app(
+        running=True,
+        phase="check",
+        percent=3,
+        downloaded_bytes=0,
+        total_bytes=0,
+        message="正在准备自动更新…",
+        mode=mode,
+        restarting=False,
+        manual_url=manual_url,
+        started=time.time(),
+        finished=0.0,
+        result=None,
+    )
+    t = threading.Thread(target=_run_app_update, args=(force_mode,), daemon=True)
+    t.start()
+    return app_update_state()
+

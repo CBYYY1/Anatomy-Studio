@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import {
   Activity, Award, BarChart3, Crosshair, Flame, TrendingDown, TrendingUp,
@@ -6,9 +6,11 @@ import {
 import { useStore } from "../store";
 import { Ring, Stat, Heat, Bar } from "../components/Bits";
 import Chart, { roseOption, rankOption } from "../components/Chart";
+import { WrongOverviewModal } from "../components/OverviewModals";
 
 export default function Analysis({ go }) {
   const { list, progress, stats, meta } = useStore();
+  const [wrongOpen, setWrongOpen] = useState(false);
 
   const byId = useMemo(() => new Map(list.map((q) => [q.id, q])), [list]);
 
@@ -99,8 +101,15 @@ export default function Analysis({ go }) {
           tone={stats.accuracy > 0.75 ? "green" : stats.accuracy > 0.55 ? "yellow" : "red"}
           hint={`累计作答 ${stats.attempts} 次`} icon={Activity}
           className="col-span-1 md:col-span-3" />
-        <Stat label="错题存量" value={stats.wrong} tone="red" hint="至少错过一次的题" icon={TrendingDown}
-          className="col-span-1 md:col-span-3" />
+        <Stat
+          label="错题存量"
+          value={stats.wrong}
+          tone="red"
+          hint="至少错过一次 · 点击展开概览"
+          icon={TrendingDown}
+          onClick={() => setWrongOpen(true)}
+          className="col-span-1 md:col-span-3"
+        />
         <Stat label="已掌握" value={stats.mastered} tone="green" hint="连对 ≥ 3 次" icon={Award}
           className="col-span-1 md:col-span-3" />
 
@@ -263,6 +272,8 @@ export default function Analysis({ go }) {
           </div>
         </motion.div>
       </div>
+
+      <WrongOverviewModal open={wrongOpen} onClose={() => setWrongOpen(false)} go={go} />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { motion } from "framer-motion";
+import { ChevronRight } from "lucide-react";
 import { cssVar } from "../lib/theme";
 
 /** 渐变进度环：Apple Watch 三环的观感，但只做单环。 */
@@ -64,7 +65,7 @@ export function Ring({ value = 0, size = 132, stroke = 10, tone = "blue", label,
 }
 
 /** Bento 里的大数字卡片。 */
-export function Stat({ label, value, suffix, tone = "white", hint, icon: Icon, className = "" }) {
+export function Stat({ label, value, suffix, tone = "white", hint, icon: Icon, onClick, className = "" }) {
   const tones = {
     white: "text-ink-900",
     green: "text-apple-green",
@@ -72,10 +73,24 @@ export function Stat({ label, value, suffix, tone = "white", hint, icon: Icon, c
     yellow: "text-apple-yellow",
     blue: "text-apple-blue",
   };
+  const clickable = typeof onClick === "function";
   return (
-    <div className={`card card-hover flex flex-col justify-between ${className}`}>
+    <div
+      onClick={onClick}
+      role={clickable ? "button" : undefined}
+      tabIndex={clickable ? 0 : undefined}
+      onKeyDown={clickable ? (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onClick(); } } : undefined}
+      className={`card card-hover flex flex-col justify-between ${
+        clickable ? "group cursor-pointer transition-colors hover:border-apple-red/30 hover:bg-apple-red/[0.02]" : ""
+      } ${className}`}
+    >
       <div className="flex items-center justify-between">
-        <span className="label">{label}</span>
+        <span className="label flex items-center gap-1">
+          {label}
+          {clickable && (
+            <ChevronRight className="h-3 w-3 text-ink-900/32 transition-transform group-hover:translate-x-0.5 group-hover:text-apple-red" />
+          )}
+        </span>
         {Icon && <Icon className="h-3.5 w-3.5 text-ink-900/36" />}
       </div>
       <div className="mt-3 flex items-baseline gap-1">

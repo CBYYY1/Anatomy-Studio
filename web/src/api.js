@@ -45,7 +45,7 @@ export const api = {
     }),
   reset: () => req("/api/progress/reset", { method: "POST" }),
 
-  cram: (n = 20) => req(`/api/cram?n=${n}`),
+  cram: (n = 0) => req(`/api/cram?n=${n}`),
   search: (q, limit = 24) =>
     req(`/api/search?q=${encodeURIComponent(q)}&limit=${limit}`),
   note: (path) => req(`/api/obsidian-note?path=${encodeURIComponent(path)}`),
@@ -116,6 +116,13 @@ export const api = {
       headers: J,
       body: JSON.stringify({}),
     }),
+  applyAppUpdate: (payload = {}) =>
+    req("/api/updater/apply-app-update", {
+      method: "POST",
+      headers: J,
+      body: JSON.stringify(payload),
+    }),
+  appUpdateStatus: () => req("/api/updater/app-update-status"),
 };
 
 /** multipart 上传：不要把 Content-Type 写死，交给浏览器带 boundary。 */

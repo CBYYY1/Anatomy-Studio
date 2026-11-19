@@ -25,7 +25,7 @@
  },
  "腹膜间位器官": {
   "note": "wiki/concepts/结构-内脏2-JG/057_腹膜与脏器的关系.md",
-  "heading": "（2）腹膜间位器官（7 个）"
+  "heading": "==🟡（2）腹膜间位器官（7 个）=="
  },
  "耻骨联合": {
   "note": "wiki/concepts/结构-运动/064_耻骨联合.md",
@@ -160,24 +160,32 @@
   "heading": "1.9 教材补充：上肢的局部记载——腋窝、三边孔、四边孔、肘窝、腕管"
  },
  "淋巴结": {
-  "note": "wiki/exam/05_脉管系统_思考题.md",
-  "heading": "第2题 在体表可扪及的淋巴结有哪些？若发生肿大有何临床意义？"
+  "note": "wiki/concepts/结构-脉管/068_淋巴结.md",
+  "heading": "淋巴结"
  },
  "乳腺叶": {
   "note": "wiki/concepts/结构-内脏2-JG/052_乳房的结构.md",
   "heading": "（1）乳腺叶"
  },
+ "髂总动脉": {
+  "note": "wiki/concepts/结构-脉管/036_髂总动脉.md",
+  "heading": "髂总动脉"
+ },
+ "髂内动脉": {
+  "note": "wiki/concepts/结构-脉管/037_髂内动脉.md",
+  "heading": "髂内动脉"
+ },
+ "髂内": {
+  "note": "wiki/concepts/结构-脉管/037_髂内动脉.md",
+  "heading": "髂内动脉"
+ },
  "动脉": {
   "note": "wiki/concepts/结构-内脏2-JG/048_子宫的组织结构.md",
   "heading": "5. 血管：基底动脉与螺旋动脉"
  },
- "髂内动脉": {
-  "note": "raw/结构-脉管_转换稿.md",
-  "heading": "髂内动脉internal iliac artery"
- },
  "髂外动脉": {
-  "note": "raw/结构-脉管_转换稿.md",
-  "heading": "髂外动脉external iliac artery"
+  "note": "wiki/concepts/结构-脉管/039_髂外动脉.md",
+  "heading": "髂外动脉"
  },
  "直肠": {
   "note": "wiki/concepts/结构-内脏1/027_直肠.md",
@@ -197,7 +205,7 @@
  },
  "腹膜内位器官": {
   "note": "wiki/concepts/结构-内脏2-JG/057_腹膜与脏器的关系.md",
-  "heading": "（1）腹膜内位器官（11 个）"
+  "heading": "（==🟡1）腹膜内位器官（11 个）=="
  },
  "系膜": {
   "note": "wiki/concepts/结构-内脏2-JG/010_血管系膜.md",
@@ -240,8 +248,8 @@
   "heading": "2. 舌黏膜与舌乳头"
  },
  "内侧": {
-  "note": "wiki/concepts/结构-运动/074_膝关节.md",
-  "heading": "6.1 教材补充：为什么「内侧半月板」更易损伤（机制链）"
+  "note": "wiki/concepts/结构-脉管/007_右心房.md",
+  "heading": "3. 后内侧壁与卵圆窝"
  },
  "皱襞": {
   "note": "wiki/concepts/结构-内脏1/056_喉腔.md",
@@ -319,13 +327,17 @@
   "note": "wiki/concepts/结构-内脏1/037_消化管的一般组织结构.md",
   "heading": "3. 黏膜下层"
  },
- "子宫动脉": {
-  "note": "wiki/concepts/结构-内脏2-JG/021_输尿管.md",
-  "heading": "7. 临床联系"
+ "髂血管": {
+  "note": "wiki/exam/03_内脏学_思考题.md",
+  "heading": "第24题 简述输尿管三个生理性狭窄的部位及意义。"
  },
- "主动脉": {
-  "note": "raw/结构-脉管_转换稿.md",
-  "heading": "主动脉"
+ "子宫动脉": {
+  "note": "wiki/concepts/结构-脉管/037_髂内动脉.md",
+  "heading": "2. 核心高频考点：子宫动脉与输尿管的交叉关系（课件第 77 页）"
+ },
+ "腹主动脉": {
+  "note": "wiki/concepts/结构-脉管/031_腹主动脉.md",
+  "heading": "腹主动脉"
  },
  "肾门": {
   "note": "wiki/concepts/结构-内脏2-JG/002_肾的形态.md",
@@ -372,24 +384,24 @@
   "heading": "（3）肾筋膜"
  },
  "肾上腺": {
-  "note": "wiki/exam/04_内分泌系统_思考题.md",
-  "heading": "第3题 肾上腺皮质分哪三个带？各分泌什么激素？髓质细胞分泌什么激素？"
+  "note": "wiki/concepts/结构-脉管/032_肾上腺的动脉.md",
+  "heading": "肾上腺的动脉"
  },
  "肾蒂": {
   "note": "wiki/concepts/结构-内脏2-JG/002_肾的形态.md",
   "heading": "3. 肾门与肾蒂（要点）"
  },
  "肾静脉": {
-  "note": "wiki/concepts/结构-内脏2-JG/003_肾门与肾蒂.md",
-  "heading": "2. 肾蒂"
+  "note": "wiki/concepts/结构-脉管/055_下腔静脉.md",
+  "heading": "（2）脏支（注意左右不对称回流！）"
  },
  "肾动脉": {
   "note": "wiki/concepts/结构-内脏2-JG/003_肾门与肾蒂.md",
   "heading": "2. 肾蒂"
  },
  "淋巴管": {
-  "note": "wiki/concepts/结构-运动/005_骨的构造.md",
-  "heading": "2. 血管、神经与淋巴管"
+  "note": "wiki/concepts/结构-脉管/064_淋巴系统总论与淋巴管道.md",
+  "heading": "淋巴系统总论与淋巴管道"
  },
  "肾小体": {
   "note": "raw/人体结构学 第2版_转换稿.md",
@@ -459,6 +471,10 @@
   "note": "raw/人体结构学 第2版_转换稿.md",
   "heading": "（三）混合性脑神经"
  },
+ "主动脉": {
+  "note": "wiki/concepts/结构-脉管/010_左心室.md",
+  "heading": "3. 流出道、主动脉瓣与主动脉窦"
+ },
  "胸神经": {
   "note": "raw/人体结构学 第2版_转换稿.md",
   "heading": "（五）胸神经前支"
@@ -468,8 +484,8 @@
   "heading": "第6题 试述大脑血供的来源，描述脑底动脉环的位置、形成及意义。"
  },
  "锁骨下动脉": {
-  "note": "raw/结构-脉管_转换稿.md",
-  "heading": "锁骨下动脉subclavian artery"
+  "note": "wiki/concepts/结构-脉管/025_锁骨下动脉.md",
+  "heading": "锁骨下动脉"
  },
  "轴突": {
   "note": "wiki/exam/01_基本组织_思考题.md",
@@ -688,15 +704,15 @@
   "heading": "骨膜（periosteum）"
  },
  "甲状腺上动脉": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "1. 头颈部的动脉"
+  "note": "wiki/concepts/结构-脉管/024_颈外动脉.md",
+  "heading": "2. 主要分支与分布范围（五大重点分支）"
  },
  "食管": {
   "note": "wiki/concepts/结构-内脏1/018_食管.md",
   "heading": "食管"
  },
  "颈内静脉": {
-  "note": "raw/结构-脉管_转换稿.md",
+  "note": "wiki/concepts/结构-脉管/046_颈内静脉.md",
   "heading": "颈内静脉"
  },
  "颈内动脉": {
@@ -704,32 +720,32 @@
   "heading": "（一）脑的血管"
  },
  "颈总动脉": {
-  "note": "raw/结构-脉管_转换稿.md",
-  "heading": "颈总动脉common carotid artery"
+  "note": "wiki/concepts/结构-脉管/023_颈总动脉.md",
+  "heading": "颈总动脉"
  },
  "肺根": {
   "note": "wiki/concepts/结构-内脏1/059_肺.md",
   "heading": "3. 肺门与肺根（简述）"
  },
  "锁骨下静脉": {
-  "note": "raw/结构-脉管_转换稿.md",
+  "note": "wiki/concepts/结构-脉管/048_锁骨下静脉.md",
   "heading": "锁骨下静脉"
  },
  "主动脉弓": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "（三）混合性脑神经"
+  "note": "wiki/concepts/结构-脉管/022_主动脉.md",
+  "heading": "2. 主动脉弓三大分支及其排列规律（必考考点）"
  },
  "颈动脉小球": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "1. 头颈部的动脉"
+  "note": "wiki/concepts/结构-脉管/023_颈总动脉.md",
+  "heading": "2. 颈动脉窦与颈动脉小球（高频名词解释）"
  },
  "舌支": {
   "note": "wiki/exam/07_神经系统_思考题.md",
   "heading": "第5题 试述舌的神经支配范围及其纤维性质。"
  },
  "颈动脉窦": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "1. 头颈部的动脉"
+  "note": "wiki/concepts/结构-脉管/023_颈总动脉.md",
+  "heading": "2. 颈动脉窦与颈动脉小球（高频名词解释）"
  },
  "外耳道": {
   "note": "raw/人体结构学 第2版_转换稿.md",
@@ -774,6 +790,10 @@
  "中脑": {
   "note": "raw/人体结构学 第2版_转换稿.md",
   "heading": "1. 脑干的外形"
+ },
+ "海绵窦": {
+  "note": "wiki/exam/05_脉管系统_思考题.md",
+  "heading": "第13题 解释：静脉角、“危险三角”。"
  },
  "反射": {
   "note": "raw/人体结构学 第2版_转换稿.md",
@@ -840,7 +860,7 @@
   "heading": "2.2 教材补充：上肢肌与下肢肌的配布对比"
  },
  "大隐静脉": {
-  "note": "raw/结构-脉管_转换稿.md",
+  "note": "wiki/concepts/结构-脉管/058_大隐静脉.md",
   "heading": "大隐静脉"
  },
  "腰丛": {
@@ -860,8 +880,8 @@
   "heading": "3.1 教材补充：股三角三界与腹股沟韧带的位置"
  },
  "股动脉": {
-  "note": "raw/结构-脉管_转换稿.md",
-  "heading": "股动脉femoral artery"
+  "note": "wiki/concepts/结构-脉管/040_股动脉.md",
+  "heading": "股动脉"
  },
  "股四头肌": {
   "note": "wiki/concepts/结构-运动/098_下肢肌.md",
@@ -904,7 +924,7 @@
   "heading": "第1题 试述颈丛、臂丛、腰丛、骶丛的组成、位置、主要分支的名称及分布范围。"
  },
  "贵要静脉": {
-  "note": "raw/结构-脉管_转换稿.md",
+  "note": "wiki/concepts/结构-脉管/052_贵要静脉.md",
   "heading": "贵要静脉"
  },
  "掌侧": {
@@ -924,20 +944,20 @@
   "heading": "1.5 教材补充：臂肌前群与后群"
  },
  "头静脉": {
-  "note": "raw/结构-脉管_转换稿.md",
+  "note": "wiki/concepts/结构-脉管/051_头静脉.md",
   "heading": "头静脉"
  },
  "肱二头肌腱": {
-  "note": "wiki/concepts/结构-运动/053_桡骨头.md",
-  "heading": "1. 结构"
+  "note": "wiki/concepts/结构-脉管/027_肱动脉.md",
+  "heading": "3. 功能意义与临床联系（教材 第 199 页／印刷页 182 临床链接）"
  },
  "深筋膜": {
   "note": "wiki/concepts/结构-运动/090_肌学总论.md",
   "heading": "5.2 教材补充：浅筋膜与深筋膜的层次与衍生结构"
  },
  "后动脉": {
-  "note": "raw/结构-脉管_转换稿.md",
-  "heading": "胫后动脉posterior tibial artery"
+  "note": "wiki/concepts/结构-脉管/042_胫后动脉.md",
+  "heading": "胫后动脉"
  },
  "三角肌": {
   "note": "wiki/concepts/结构-运动/049_肱骨.md",
@@ -947,13 +967,17 @@
   "note": "wiki/concepts/结构-运动/023_关节唇.md",
   "heading": "教材实例一：肩关节的盂唇"
  },
+ "胸肌淋巴结": {
+  "note": "wiki/exam/05_脉管系统_思考题.md",
+  "heading": "第2题 在体表可扪及的淋巴结有哪些？若发生肿大有何临床意义？"
+ },
  "锁骨": {
-  "note": "wiki/concepts/结构-运动/046_上肢骨.md",
-  "heading": "5. 教材补充：「锁骨是上肢与躯干之间唯一骨性连接」的教材依据"
+  "note": "wiki/concepts/结构-脉管/025_锁骨下动脉.md",
+  "heading": "锁骨下动脉"
  },
  "腋动脉": {
-  "note": "raw/结构-脉管_转换稿.md",
-  "heading": "腋动脉axillary  artery"
+  "note": "wiki/concepts/结构-脉管/026_腋动脉.md",
+  "heading": "腋动脉"
  },
  "环状软骨": {
   "note": "wiki/concepts/结构-内脏1/053_喉的软骨.md",
@@ -968,8 +992,8 @@
   "heading": "5. 教材补充：肋弓在胸廓下口中的位置与呼吸时的位移"
  },
  "心包": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "（六）心包"
+  "note": "wiki/concepts/结构-脉管/018_心包.md",
+  "heading": "心包"
  },
  "纵隔胸膜": {
   "note": "wiki/concepts/结构-内脏1/064_壁胸膜.md",
@@ -1012,8 +1036,8 @@
   "heading": "（一）中枢神经系统的神经胶质细胞"
  },
  "抑制性": {
-  "note": "wiki/exam/01_基本组织_思考题.md",
-  "heading": "第15题 化学突触由哪几部分组成？如何传递神经冲动？"
+  "note": "wiki/concepts/结构-脉管/067_淋巴细胞与淋巴组织.md",
+  "heading": "1. 淋巴细胞分类（教材 第 224 页；课件第 133 页）"
  },
  "尼氏体": {
   "note": "wiki/exam/01_基本组织_思考题.md",
@@ -1047,9 +1071,13 @@
   "note": "wiki/concepts/结构-内脏1/033_肝外胆道系统.md",
   "heading": "2. 胆总管的走行（四段式）"
  },
- "肝门": {
-  "note": "wiki/concepts/结构-内脏1/031_肝门与肝蒂.md",
-  "heading": "肝门与肝蒂"
+ "肝门静脉": {
+  "note": "wiki/concepts/结构-脉管/060_肝门静脉.md",
+  "heading": "肝门静脉"
+ },
+ "肝固有动脉": {
+  "note": "wiki/concepts/结构-内脏2-JG/058_小网膜.md",
+  "heading": "2. 肝十二指肠韧带内的三个重要结构（必考）"
  },
  "肝肾隐窝": {
   "note": "wiki/concepts/结构-内脏2-JG/064_皱襞、隐窝和陷凹.md",
@@ -1088,11 +1116,11 @@
   "heading": "小网膜"
  },
  "下腔静脉": {
-  "note": "raw/结构-脉管_转换稿.md",
-  "heading": "下腔静脉"
+  "note": "wiki/concepts/结构-脉管/054_奇静脉系.md",
+  "heading": "2. 沟通上、下腔静脉系的通路公式"
  },
  "肠系膜上动脉": {
-  "note": "raw/结构-脉管_转换稿.md",
+  "note": "wiki/concepts/结构-脉管/034_肠系膜上动脉.md",
   "heading": "肠系膜上动脉"
  },
  "网膜孔": {
@@ -1100,8 +1128,8 @@
   "heading": "3. 右缘游离与网膜孔"
  },
  "腹膜外位器官": {
-  "note": "wiki/concepts/结构-内脏2-JG/057_腹膜与脏器的关系.md",
-  "heading": "（3）腹膜外位器官（7 个）"
+  "note": "raw/人体结构学 第2版_转换稿.md",
+  "heading": "（三）腹膜外位器官"
  },
  "升结肠": {
   "note": "wiki/exam/03_内脏学_思考题.md",
@@ -1136,8 +1164,8 @@
   "heading": "1. 中空性器官"
  },
  "颈外动脉": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "1. 头颈部的动脉"
+  "note": "wiki/concepts/结构-脉管/024_颈外动脉.md",
+  "heading": "颈外动脉"
  },
  "软骨": {
   "note": "wiki/concepts/结构-内脏1/053_喉的软骨.md",
@@ -1230,6 +1258,10 @@
  "鼻道": {
   "note": "wiki/concepts/结构-内脏1/051_鼻腔外侧壁.md",
   "heading": "1. 鼻甲与鼻道"
+ },
+ "脑膜中动脉": {
+  "note": "wiki/exam/02_运动系统_思考题.md",
+  "heading": "第6题 翼点的位置、结构特点及意义。"
  },
  "骨迷路": {
   "note": "wiki/concepts/结构-运动/082_筛骨.md",
@@ -1435,6 +1467,10 @@
   "note": "wiki/concepts/结构-运动/042_椎间盘.md",
   "heading": "3. 临床意义：椎间盘突出症"
  },
+ "纤维环": {
+  "note": "wiki/concepts/结构-运动/042_椎间盘.md",
+  "heading": "6. 教材补充：临床链接的完整因果链——教材原句比本页多三个限定"
+ },
  "骶曲": {
   "note": "wiki/concepts/结构-运动/041_脊柱.md",
   "heading": "2. 脊柱的整体观"
@@ -1528,8 +1564,8 @@
   "heading": "1. 鼻在呼吸系统中的地位"
  },
  "脉管系统": {
-  "note": "wiki/exam/05_脉管系统_思考题.md",
-  "heading": "第五章 脉管系统·思考题"
+  "note": "wiki/concepts/结构-脉管/001_脉管系统.md",
+  "heading": "脉管系统"
  },
  "内分泌系统": {
   "note": "wiki/exam/04_内分泌系统_思考题.md",
@@ -1728,16 +1764,16 @@
   "heading": "腹股沟韧带"
  },
  "腋淋巴结": {
-  "note": "wiki/exam/05_脉管系统_思考题.md",
-  "heading": "第2题 在体表可扪及的淋巴结有哪些？若发生肿大有何临床意义？"
+  "note": "wiki/concepts/结构-脉管/073_腋淋巴结.md",
+  "heading": "腋淋巴结"
  },
  "肱三头肌": {
   "note": "wiki/exam/07_神经系统_思考题.md",
   "heading": "第3题 试述下列肌或肌群的神经支配：膈、三角肌、前锯肌、肱二（三）头肌、前臂前（后）群肌、大腿前（后）群肌、小腿三头肌、胫骨前（后）肌、胸锁乳突肌、咀嚼肌、斜方肌、面肌、舌肌、喉肌、眼球外肌。"
  },
  "肱动脉": {
-  "note": "raw/结构-脉管_转换稿.md",
-  "heading": "肱动脉brachial artery"
+  "note": "wiki/concepts/结构-脉管/027_肱动脉.md",
+  "heading": "肱动脉"
  },
  "骨骼肌": {
   "note": "wiki/concepts/结构-运动/090_肌学总论.md",
@@ -1747,9 +1783,13 @@
   "note": "wiki/exam/06_感觉器_思考题.md",
   "heading": "第六章 感觉器·思考题"
  },
+ "臀下动脉": {
+  "note": "wiki/concepts/结构-内脏2-JG/022_膀胱.md",
+  "heading": "5. 血管神经支配"
+ },
  "阴部内动脉": {
-  "note": "raw/结构-脉管_转换稿.md",
-  "heading": "阴部内动脉internal pudendal artery"
+  "note": "wiki/concepts/结构-脉管/038_阴部内动脉.md",
+  "heading": "阴部内动脉"
  },
  "白线": {
   "note": "wiki/concepts/结构-运动/095_腹股沟管.md",
@@ -1771,6 +1811,10 @@
   "note": "wiki/concepts/结构-运动/085_下颌骨.md",
   "heading": "4.1 教材补充：咀嚼肌——作用于颞下颌关节的四块肌"
  },
+ "臀上动脉": {
+  "note": "wiki/concepts/结构-脉管/037_髂内动脉.md",
+  "heading": "1. 壁支与脏支全表"
+ },
  "腹直肌": {
   "note": "wiki/exam/02_运动系统_思考题.md",
   "heading": "第17题 解释：腹直肌鞘、斜角肌间隙。"
@@ -1779,13 +1823,17 @@
   "note": "wiki/concepts/结构-运动/090_肌学总论.md",
   "heading": "2.2 教材补充：四种形态的详细特征"
  },
+ "心壁": {
+  "note": "wiki/concepts/结构-脉管/013_心壁.md",
+  "heading": "心壁"
+ },
  "腱鞘": {
   "note": "wiki/concepts/结构-运动/092_腱鞘.md",
   "heading": "腱鞘"
  },
  "咬肌": {
-  "note": "wiki/concepts/结构-运动/085_下颌骨.md",
-  "heading": "4.1 教材补充：咀嚼肌——作用于颞下颌关节的四块肌"
+  "note": "wiki/concepts/结构-脉管/024_颈外动脉.md",
+  "heading": "4. 功能意义与临床联系"
  },
  "颅顶肌": {
   "note": "raw/结构-运动_转换稿.md",
@@ -1795,45 +1843,73 @@
   "note": "raw/结构-运动_转换稿.md",
   "heading": "结构-运动_转换稿"
  },
+ "股深动脉": {
+  "note": "wiki/concepts/结构-脉管/040_股动脉.md",
+  "heading": "2. 主要分支与分布（教材 第 207 页 + 课件第 82 页）"
+ },
  "肘窝": {
   "note": "wiki/concepts/结构-运动/097_上肢肌.md",
   "heading": "1.9 教材补充：上肢的局部记载——腋窝、三边孔、四边孔、肘窝、腕管"
  },
  "胸导管": {
-  "note": "wiki/exam/05_脉管系统_思考题.md",
-  "heading": "第1题 试述胸导管的起始、行程、注入部位及收集范围。"
+  "note": "wiki/concepts/结构-脉管/066_胸导管.md",
+  "heading": "胸导管"
  },
  "上腔静脉": {
-  "note": "raw/结构-脉管_转换稿.md",
-  "heading": "上腔静脉superior vena cava"
+  "note": "wiki/concepts/结构-脉管/045_上腔静脉与头臂静脉.md",
+  "heading": "上腔静脉与头臂静脉"
  },
  "肋围成斜角肌间隙": {
   "note": "raw/人体结构学 第2版_转换稿.md",
   "heading": "1. 颈浅肌群"
  },
- "室间隔": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "3. 房间隔和室间隔"
+ "旋支": {
+  "note": "wiki/exam/05_脉管系统_思考题.md",
+  "heading": "第4题 试述心的动脉供应及其主要分支的名称。"
+ },
+ "前室间支": {
+  "note": "wiki/exam/05_脉管系统_思考题.md",
+  "heading": "第4题 试述心的动脉供应及其主要分支的名称。"
+ },
+ "后室间支": {
+  "note": "wiki/exam/05_脉管系统_思考题.md",
+  "heading": "第4题 试述心的动脉供应及其主要分支的名称。"
+ },
+ "室间隔膜部": {
+  "note": "wiki/concepts/结构-脉管/014_心间隔.md",
+  "heading": "2. 胚胎发育与临床链接（教材 第 193 页／印刷页 176）"
  },
  "右心室": {
-  "note": "raw/结构-脉管_转换稿.md",
-  "heading": "右心室right ventricle"
+  "note": "wiki/concepts/结构-脉管/008_右心室.md",
+  "heading": "右心室"
  },
  "左心室": {
-  "note": "raw/结构-脉管_转换稿.md",
-  "heading": "左心室left ventricle   以二尖瓣前尖分为流入道和流出道。"
+  "note": "wiki/concepts/结构-脉管/010_左心室.md",
+  "heading": "左心室"
+ },
+ "室间隔": {
+  "note": "wiki/concepts/结构-脉管/014_心间隔.md",
+  "heading": "1. 房间隔与室间隔对比"
  },
  "左心房": {
-  "note": "raw/结构-脉管_转换稿.md",
-  "heading": "左心房left atrium"
+  "note": "wiki/concepts/结构-脉管/009_左心房.md",
+  "heading": "左心房"
+ },
+ "心包腔": {
+  "note": "wiki/concepts/结构-脉管/018_心包.md",
+  "heading": "4. 功能意义与临床联系"
+ },
+ "冠状动脉": {
+  "note": "wiki/concepts/结构-脉管/016_冠状动脉.md",
+  "heading": "冠状动脉"
  },
  "心尖": {
   "note": "raw/结构-脉管_转换稿.md",
   "heading": "心底与心尖"
  },
  "右心房": {
-  "note": "raw/结构-脉管_转换稿.md",
-  "heading": "右心房right atrium"
+  "note": "wiki/concepts/结构-脉管/007_右心房.md",
+  "heading": "右心房"
  },
  "锁骨中线": {
   "note": "wiki/concepts/结构-内脏1/003_胸部的标志线.md",
@@ -1843,13 +1919,41 @@
   "note": "raw/结构-脉管_转换稿.md",
   "heading": "心底与心尖"
  },
+ "肺动脉": {
+  "note": "wiki/concepts/结构-脉管/021_肺循环的动脉与动脉韧带.md",
+  "heading": "1. 肺动脉干与左、右肺动脉"
+ },
  "左冠状动脉": {
   "note": "wiki/exam/05_脉管系统_思考题.md",
   "heading": "第4题 试述心的动脉供应及其主要分支的名称。"
  },
+ "心大静脉": {
+  "note": "wiki/concepts/结构-脉管/006_心的外形.md",
+  "heading": "3. 心表面四条沟与标志（课件第 18 页）"
+ },
+ "心中静脉": {
+  "note": "wiki/concepts/结构-脉管/006_心的外形.md",
+  "heading": "3. 心表面四条沟与标志（课件第 18 页）"
+ },
+ "心小静脉": {
+  "note": "wiki/exam/05_脉管系统_思考题.md",
+  "heading": "第4题 试述心的动脉供应及其主要分支的名称。"
+ },
+ "右心耳": {
+  "note": "raw/结构-脉管_转换稿.md",
+  "heading": "心底与心尖"
+ },
  "房间隔": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "3. 房间隔和室间隔"
+  "note": "wiki/concepts/结构-脉管/014_心间隔.md",
+  "heading": "1. 房间隔与室间隔对比"
+ },
+ "主动脉瓣": {
+  "note": "wiki/concepts/结构-脉管/010_左心室.md",
+  "heading": "3. 流出道、主动脉瓣与主动脉窦"
+ },
+ "动脉导管未闭": {
+  "note": "wiki/concepts/结构-脉管/021_肺循环的动脉与动脉韧带.md",
+  "heading": "4. 临床联系"
  },
  "房室束": {
   "note": "wiki/exam/05_脉管系统_思考题.md",
@@ -1857,63 +1961,115 @@
  },
  "窦房结": {
   "note": "wiki/exam/05_脉管系统_思考题.md",
-  "heading": "第3题 试述心传导系统的组成、位置和功能。"
+  "heading": "第5题 解释：二（三）尖瓣复合体、窦房结、心包。"
  },
  "房室结": {
   "note": "wiki/exam/05_脉管系统_思考题.md",
   "heading": "第3题 试述心传导系统的组成、位置和功能。"
  },
+ "主动脉前庭": {
+  "note": "wiki/concepts/结构-脉管/010_左心室.md",
+  "heading": "1. 分部与界限"
+ },
+ "卵圆窝": {
+  "note": "wiki/concepts/结构-脉管/007_右心房.md",
+  "heading": "3. 后内侧壁与卵圆窝"
+ },
+ "主动脉窦": {
+  "note": "wiki/concepts/结构-脉管/010_左心室.md",
+  "heading": "3. 流出道、主动脉瓣与主动脉窦"
+ },
+ "梳状肌": {
+  "note": "raw/人体结构学 第2版_转换稿.md",
+  "heading": "（二）心腔的形态结构"
+ },
  "右束支": {
   "note": "wiki/exam/05_脉管系统_思考题.md",
   "heading": "第3题 试述心传导系统的组成、位置和功能。"
  },
- "冠状窦": {
+ "动脉圆锥": {
+  "note": "wiki/concepts/结构-脉管/008_右心室.md",
+  "heading": "3. 流出道（动脉圆锥 / 漏斗部）"
+ },
+ "房室交点": {
+  "note": "wiki/concepts/结构-脉管/006_心的外形.md",
+  "heading": "5. 临床联系"
+ },
+ "室间沟": {
+  "note": "wiki/concepts/结构-脉管/006_心的外形.md",
+  "heading": "3. 心表面四条沟与标志（课件第 18 页）"
+ },
+ "冠状沟": {
   "note": "wiki/exam/05_脉管系统_思考题.md",
   "heading": "第4题 试述心的动脉供应及其主要分支的名称。"
+ },
+ "冠状窦": {
+  "note": "wiki/concepts/结构-脉管/017_心的静脉.md",
+  "heading": "2. 冠状窦的三大主要属支"
  },
  "疏松结缔组织": {
   "note": "wiki/exam/01_基本组织_思考题.md",
   "heading": "第4题 疏松结缔组织中的主要细胞有哪几种？各有何结构和功能特点？"
  },
+ "纤维三角": {
+  "note": "wiki/concepts/结构-脉管/012_心纤维骨骼.md",
+  "heading": "1. 组成"
+ },
+ "心瓣膜": {
+  "note": "wiki/concepts/结构-脉管/011_维持血液单向流动的结构.md",
+  "heading": "3. 结构分层、毗邻与血管神经"
+ },
+ "肺动脉瓣": {
+  "note": "wiki/exam/05_脉管系统_思考题.md",
+  "heading": "第2题 试述右半心腔的形态结构，并说出保证血液单向流通的装置。"
+ },
+ "心内膜": {
+  "note": "wiki/concepts/结构-脉管/013_心壁.md",
+  "heading": "2. 毗邻、血管与神经支配"
+ },
+ "心外膜": {
+  "note": "wiki/exam/05_脉管系统_思考题.md",
+  "heading": "第5题 解释：二（三）尖瓣复合体、窦房结、心包。"
+ },
  "纤维心包": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "（六）心包"
+  "note": "wiki/exam/05_脉管系统_思考题.md",
+  "heading": "第5题 解释：二（三）尖瓣复合体、窦房结、心包。"
  },
  "膈胸膜": {
   "note": "wiki/concepts/结构-内脏1/063_胸膜.md",
   "heading": "4. 神经支配与感觉"
  },
  "肺静脉": {
-  "note": "raw/结构-脉管_转换稿.md",
-  "heading": "肺静脉pulmonary vein"
+  "note": "wiki/concepts/结构-脉管/044_肺静脉.md",
+  "heading": "肺静脉"
  },
  "升主动脉": {
   "note": "raw/人体结构学 第2版_转换稿.md",
   "heading": "（二）体循环的动脉"
  },
  "胸主动脉": {
-  "note": "raw/结构-脉管_转换稿.md",
-  "heading": "胸主动脉thoracic aorta"
+  "note": "wiki/concepts/结构-脉管/030_胸主动脉.md",
+  "heading": "胸主动脉"
  },
  "掌浅弓": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "2. 上肢的动脉"
+  "note": "wiki/concepts/结构-脉管/029_掌浅弓与掌深弓.md",
+  "heading": "掌浅弓与掌深弓"
  },
  "桡动脉": {
-  "note": "raw/结构-脉管_转换稿.md",
-  "heading": "桡动脉radial artery    尺动脉ulnar artery"
+  "note": "wiki/concepts/结构-脉管/028_桡动脉与尺动脉.md",
+  "heading": "桡动脉与尺动脉"
  },
  "尺动脉": {
-  "note": "raw/结构-脉管_转换稿.md",
-  "heading": "桡动脉radial artery    尺动脉ulnar artery"
+  "note": "wiki/concepts/结构-脉管/028_桡动脉与尺动脉.md",
+  "heading": "桡动脉与尺动脉"
  },
  "面动脉": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "1. 头颈部的动脉"
+  "note": "wiki/concepts/结构-脉管/047_面静脉与危险三角.md",
+  "heading": "3. 结构、毗邻与淋巴伴行"
  },
  "胸腺": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "（三）胸腺（thymus）"
+  "note": "wiki/concepts/结构-脉管/071_胸腺.md",
+  "heading": "胸腺"
  },
  "降主动脉": {
   "note": "raw/人体结构学 第2版_转换稿.md",
@@ -1923,33 +2079,61 @@
   "note": "wiki/concepts/结构-内脏2-JG/019_致密斑.md",
   "heading": "3. 功能：钠离子感受器"
  },
- "右冠状动脉": {
+ "头臂干": {
   "note": "wiki/exam/05_脉管系统_思考题.md",
-  "heading": "第4题 试述心的动脉供应及其主要分支的名称。"
+  "heading": "第6题 试述主动脉弓分支的名称及排列"
+ },
+ "右冠状动脉": {
+  "note": "wiki/concepts/结构-脉管/016_冠状动脉.md",
+  "heading": "1. 左、右冠状动脉起始、行程与分布全表"
  },
  "上颌动脉": {
   "note": "raw/人体结构学 第2版_转换稿.md",
   "heading": "1. 头颈部的动脉"
  },
  "颞浅动脉": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "1. 头颈部的动脉"
+  "note": "wiki/concepts/结构-脉管/024_颈外动脉.md",
+  "heading": "4. 功能意义与临床联系"
  },
  "舌动脉": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "1. 头颈部的动脉"
+  "note": "wiki/concepts/结构-脉管/024_颈外动脉.md",
+  "heading": "2. 主要分支与分布范围（五大重点分支）"
  },
  "掌深弓": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "2. 上肢的动脉"
+  "note": "wiki/concepts/结构-脉管/029_掌浅弓与掌深弓.md",
+  "heading": "掌浅弓与掌深弓"
+ },
+ "胸廓内动脉": {
+  "note": "wiki/concepts/结构-脉管/025_锁骨下动脉.md",
+  "heading": "4. 功能意义与临床联系"
  },
  "毛细血管": {
   "note": "wiki/concepts/结构-内脏2-JG/009_血管球.md",
   "heading": "2. 毛细血管壁的三层特点（课件第 13–14 页的①②③）"
  },
  "浆膜心包": {
+  "note": "wiki/exam/05_脉管系统_思考题.md",
+  "heading": "第5题 解释：二（三）尖瓣复合体、窦房结、心包。"
+ },
+ "二尖瓣复合体": {
+  "note": "wiki/concepts/结构-脉管/010_左心室.md",
+  "heading": "2. 流入道与二尖瓣复合体"
+ },
+ "肺循环": {
+  "note": "wiki/concepts/结构-脉管/021_肺循环的动脉与动脉韧带.md",
+  "heading": "肺循环的动脉与动脉韧带"
+ },
+ "肺静脉口": {
+  "note": "wiki/concepts/结构-脉管/009_左心房.md",
+  "heading": "2. 出入口（四入口、一出口）"
+ },
+ "静脉瓣": {
+  "note": "wiki/concepts/结构-脉管/047_面静脉与危险三角.md",
+  "heading": "1. 解剖特点（为什么有「危险三角」）"
+ },
+ "体循环": {
   "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "（六）心包"
+  "heading": "（二）体循环的动脉"
  },
  "膜迷路": {
   "note": "raw/人体结构学 第2版_转换稿.md",
@@ -2060,8 +2244,8 @@
   "heading": "4. 肌层"
  },
  "中膜": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "（一）中动脉"
+  "note": "wiki/exam/05_脉管系统_思考题.md",
+  "heading": "第15题 以中动脉为例说明动脉管壁的一般结构，并联系其功能比较大动脉和中动脉在结构上的主要不同点。"
  },
  "视器": {
   "note": "wiki/exam/06_感觉器_思考题.md",
@@ -2071,9 +2255,17 @@
   "note": "wiki/exam/06_感觉器_思考题.md",
   "heading": "第二节 前庭蜗器（PDF 250／印刷 233）"
  },
+ "食管静脉丛": {
+  "note": "wiki/exam/05_脉管系统_思考题.md",
+  "heading": "第12题 试述肝门静脉的组成、特点、收集范围、主要属支及与腔静脉间的吻合途径。"
+ },
  "肝十二指肠韧带": {
   "note": "wiki/concepts/结构-内脏2-JG/058_小网膜.md",
   "heading": "2. 肝十二指肠韧带内的三个重要结构（必考）"
+ },
+ "下腔静脉系": {
+  "note": "wiki/concepts/结构-脉管/054_奇静脉系.md",
+  "heading": "2. 沟通上、下腔静脉系的通路公式"
  },
  "肝静脉": {
   "note": "wiki/concepts/结构-内脏1/029_肝.md",
@@ -2083,37 +2275,65 @@
   "note": "raw/结构-脉管_转换稿.md",
   "heading": "下腔静脉的属支"
  },
+ "肠系膜上静脉": {
+  "note": "wiki/concepts/结构-脉管/060_肝门静脉.md",
+  "heading": "1. 组成与行径"
+ },
  "髂总静脉": {
   "note": "raw/结构-脉管_转换稿.md",
   "heading": "髂总静脉"
  },
  "奇静脉": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "（二）体循环的静脉"
+  "note": "wiki/concepts/结构-脉管/054_奇静脉系.md",
+  "heading": "奇静脉系"
+ },
+ "半奇静脉": {
+  "note": "wiki/concepts/结构-脉管/054_奇静脉系.md",
+  "heading": "1. 三支主干对比（起止、行程与属支）"
+ },
+ "副半奇静脉": {
+  "note": "wiki/concepts/结构-脉管/054_奇静脉系.md",
+  "heading": "1. 三支主干对比（起止、行程与属支）"
  },
  "头臂静脉": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "（二）体循环的静脉"
+  "note": "wiki/concepts/结构-脉管/045_上腔静脉与头臂静脉.md",
+  "heading": "上腔静脉与头臂静脉"
  },
  "面静脉": {
-  "note": "raw/结构-脉管_转换稿.md",
-  "heading": "面静脉"
+  "note": "wiki/concepts/结构-脉管/047_面静脉与危险三角.md",
+  "heading": "面静脉与危险三角"
+ },
+ "股静脉": {
+  "note": "wiki/exam/02_运动系统_思考题.md",
+  "heading": "第18题 简述股三角的围成、内容及其临床意义。"
  },
  "肝血窦": {
   "note": "wiki/concepts/结构-内脏1/048_肝血窦.md",
   "heading": "肝血窦"
  },
+ "静脉角": {
+  "note": "wiki/concepts/结构-脉管/045_上腔静脉与头臂静脉.md",
+  "heading": "1. 头臂静脉与静脉角（高频名词解释）"
+ },
  "颈外静脉": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "（二）体循环的静脉"
+  "note": "wiki/concepts/结构-脉管/049_颈外静脉.md",
+  "heading": "颈外静脉"
  },
  "下颌后静脉": {
+  "note": "wiki/concepts/结构-脉管/046_颈内静脉.md",
+  "heading": "附：下颌后静脉（retromandibular vein）"
+ },
+ "小隐静脉": {
+  "note": "wiki/concepts/结构-脉管/059_小隐静脉.md",
+  "heading": "小隐静脉"
+ },
+ "足背静脉弓": {
   "note": "raw/人体结构学 第2版_转换稿.md",
   "heading": "（二）体循环的静脉"
  },
- "小隐静脉": {
-  "note": "raw/结构-脉管_转换稿.md",
-  "heading": "小隐静脉"
+ "手背静脉网": {
+  "note": "raw/人体结构学 第2版_转换稿.md",
+  "heading": "（二）体循环的静脉"
  },
  "髂外静脉": {
   "note": "raw/结构-脉管_转换稿.md",
@@ -2123,13 +2343,41 @@
   "note": "raw/结构-脉管_转换稿.md",
   "heading": "髂内静脉"
  },
+ "颈静脉怒张": {
+  "note": "wiki/concepts/结构-脉管/003_血液循环途径.md",
+  "heading": "4. 功能意义与临床联系"
+ },
+ "肝门": {
+  "note": "wiki/concepts/结构-内脏1/031_肝门与肝蒂.md",
+  "heading": "肝门与肝蒂"
+ },
+ "隐静脉裂孔": {
+  "note": "wiki/exam/05_脉管系统_思考题.md",
+  "heading": "第11题 颈外静脉、头静脉、贵要静脉、大隐静脉、小隐静脉的行径及注入部位。"
+ },
  "睾丸静脉": {
   "note": "raw/人体结构学 第2版_转换稿.md",
   "heading": "（二）体循环的静脉"
  },
+ "肱静脉": {
+  "note": "wiki/concepts/结构-脉管/050_上肢的静脉.md",
+  "heading": "1. 深静脉与浅静脉总系（课件第 98 页）"
+ },
+ "腋静脉": {
+  "note": "raw/人体结构学 第2版_转换稿.md",
+  "heading": "（二）体循环的静脉"
+ },
  "肘正中静脉": {
-  "note": "raw/结构-脉管_转换稿.md",
+  "note": "wiki/concepts/结构-脉管/053_肘正中静脉.md",
   "heading": "肘正中静脉"
+ },
+ "危险三角": {
+  "note": "wiki/concepts/结构-脉管/047_面静脉与危险三角.md",
+  "heading": "面静脉与危险三角"
+ },
+ "颈动脉鞘": {
+  "note": "wiki/concepts/结构-脉管/046_颈内静脉.md",
+  "heading": "2. 结构特点、毗邻与血管神经关系"
  },
  "肺泡": {
   "note": "wiki/concepts/结构-内脏1/061_肺的组织结构.md",
@@ -2148,8 +2396,8 @@
   "heading": "气管"
  },
  "心血管系统": {
-  "note": "wiki/exam/05_脉管系统_思考题.md",
-  "heading": "第一节 心血管系统（PDF 220／印刷 203）"
+  "note": "wiki/concepts/结构-脉管/002_心血管系统.md",
+  "heading": "心血管系统"
  },
  "松果体": {
   "note": "raw/人体结构学 第2版_转换稿.md",
@@ -2162,6 +2410,10 @@
  "胰岛": {
   "note": "wiki/concepts/结构-内脏1/046_胰岛.md",
   "heading": "胰岛"
+ },
+ "上纵隔": {
+  "note": "wiki/concepts/结构-内脏1/066_纵隔.md",
+  "heading": "==🟡3. 上纵隔的主要内容（教材未展开，属补充）=="
  },
  "间质细胞": {
   "note": "wiki/concepts/结构-内脏2-JG/038_间质细胞.md",
@@ -2176,12 +2428,24 @@
   "heading": "黄体"
  },
  "淋巴细胞": {
-  "note": "wiki/exam/05_脉管系统_思考题.md",
-  "heading": "第5题 淋巴细胞再循环的过程与意义是什么？"
+  "note": "wiki/concepts/结构-脉管/067_淋巴细胞与淋巴组织.md",
+  "heading": "淋巴细胞与淋巴组织"
  },
  "分泌去甲肾上腺素": {
   "note": "raw/人体结构学 第2版_转换稿.md",
   "heading": "（二）肾上腺的组织结构"
+ },
+ "中动脉": {
+  "note": "wiki/concepts/结构-脉管/063_动脉的组织结构.md",
+  "heading": "1. 中动脉（肌性动脉）——一般三层结构（教材 第 218–219 页；课件第 126 页）"
+ },
+ "甲状腺下动脉": {
+  "note": "wiki/exam/04_内分泌系统_思考题.md",
+  "heading": "第2题 甲状腺和甲状旁腺有哪些内分泌细胞？分泌什么激素？"
+ },
+ "胸腺素": {
+  "note": "wiki/concepts/结构-脉管/071_胸腺.md",
+  "heading": "3. 血管、神经与功能意义"
  },
  "坐骨海绵体肌": {
   "note": "wiki/concepts/结构-内脏2-JG/055_尿生殖三角.md",
@@ -2210,6 +2474,10 @@
  "会阴中心腱": {
   "note": "wiki/concepts/结构-内脏2-JG/053_会阴.md",
   "heading": "3. 会阴中心腱（perineal central tendon）"
+ },
+ "中纵隔": {
+  "note": "wiki/concepts/结构-内脏1/066_纵隔.md",
+  "heading": "2. 分部 ★"
  },
  "胸膜腔": {
   "note": "wiki/concepts/结构-内脏1/063_胸膜.md",
@@ -2300,8 +2568,8 @@
   "heading": "2. 按功能归类"
  },
  "前正中线": {
-  "note": "raw/结构-内脏1_转换稿.md",
-  "heading": "胸部的标志线"
+  "note": "wiki/concepts/结构-脉管/019_心的体表投影.md",
+  "heading": "1. 四个体表投影点"
  },
  "纤毛": {
   "note": "wiki/concepts/结构-内脏1/058_支气管的组织结构.md",
@@ -2315,12 +2583,20 @@
   "note": "wiki/concepts/结构-内脏1/009_牙.md",
   "heading": "1. 牙的形态：牙冠、牙颈、牙根"
  },
+ "血管吻合": {
+  "note": "wiki/concepts/结构-脉管/004_血管吻合.md",
+  "heading": "血管吻合"
+ },
+ "门静脉": {
+  "note": "wiki/concepts/结构-脉管/060_肝门静脉.md",
+  "heading": "肝门静脉"
+ },
  "肝总管": {
   "note": "raw/人体结构学 第2版_转换稿.md",
   "heading": "（一）肝管与肝总管"
  },
  "肠系膜下动脉": {
-  "note": "raw/结构-脉管_转换稿.md",
+  "note": "wiki/concepts/结构-脉管/035_肠系膜下动脉.md",
   "heading": "肠系膜下动脉"
  },
  "消化腺": {
@@ -2520,8 +2796,8 @@
   "heading": "1. 分部：舌体与舌根"
  },
  "淋巴组织": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "（六）肠相关淋巴组织"
+  "note": "wiki/concepts/结构-脉管/067_淋巴细胞与淋巴组织.md",
+  "heading": "淋巴细胞与淋巴组织"
  },
  "口腔前庭": {
   "note": "wiki/concepts/结构-内脏1/006_口腔.md",
@@ -2551,12 +2827,56 @@
   "note": "raw/人体结构学 第2版_转换稿.md",
   "heading": "（二）脑的被膜"
  },
+ "终动脉": {
+  "note": "wiki/concepts/结构-脉管/004_血管吻合.md",
+  "heading": "2. 终动脉与侧支循环"
+ },
+ "侧支循环": {
+  "note": "wiki/concepts/结构-脉管/004_血管吻合.md",
+  "heading": "2. 终动脉与侧支循环"
+ },
+ "大循环": {
+  "note": "wiki/concepts/结构-脉管/003_血液循环途径.md",
+  "heading": "血液循环途径"
+ },
  "肺动脉干": {
-  "note": "wiki/exam/05_脉管系统_思考题.md",
-  "heading": "第2题 试述右半心腔的形态结构，并说出保证血液单向流通的装置。"
+  "note": "wiki/concepts/结构-脉管/021_肺循环的动脉与动脉韧带.md",
+  "heading": "1. 肺动脉干与左、右肺动脉"
+ },
+ "三尖瓣复合体": {
+  "note": "wiki/concepts/结构-脉管/008_右心室.md",
+  "heading": "2. 流入道与三尖瓣复合体"
+ },
+ "左心耳": {
+  "note": "raw/结构-脉管_转换稿.md",
+  "heading": "心底与心尖"
+ },
+ "动脉韧带": {
+  "note": "wiki/concepts/结构-脉管/021_肺循环的动脉与动脉韧带.md",
+  "heading": "肺循环的动脉与动脉韧带"
+ },
+ "心包横窦": {
+  "note": "wiki/concepts/结构-脉管/018_心包.md",
+  "heading": "2. 两大心包窦（课件第 39–40 页）"
+ },
+ "心包斜窦": {
+  "note": "wiki/concepts/结构-脉管/044_肺静脉.md",
+  "heading": "1. 形态、行程与毗邻"
+ },
+ "肋间后动脉": {
+  "note": "wiki/concepts/结构-脉管/030_胸主动脉.md",
+  "heading": "1. 分支与分布范围"
+ },
+ "甲状颈干": {
+  "note": "wiki/concepts/结构-脉管/025_锁骨下动脉.md",
+  "heading": "2. 主要分支与分布范围"
+ },
+ "肱深动脉": {
+  "note": "wiki/concepts/结构-脉管/027_肱动脉.md",
+  "heading": "3. 功能意义与临床联系（教材 第 199 页／印刷页 182 临床链接）"
  },
  "右淋巴导管": {
-  "note": "raw/结构-脉管_转换稿.md",
+  "note": "wiki/concepts/结构-脉管/065_右淋巴导管.md",
   "heading": "右淋巴导管"
  },
  "颈外侧浅淋巴结": {
@@ -2564,52 +2884,148 @@
   "heading": "2. 颈部的淋巴结"
  },
  "颈外侧深淋巴结": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "2. 颈部的淋巴结"
+  "note": "wiki/concepts/结构-脉管/072_头颈部的淋巴结.md",
+  "heading": "2. 颈部的淋巴结（课件第 149 页；教材 第 231–233 页）"
  },
  "毛细淋巴管": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "（一）毛细淋巴管"
+  "note": "wiki/concepts/结构-脉管/064_淋巴系统总论与淋巴管道.md",
+  "heading": "（1）毛细淋巴管（lymph capillary）"
+ },
+ "淋巴管道": {
+  "note": "wiki/concepts/结构-脉管/064_淋巴系统总论与淋巴管道.md",
+  "heading": "淋巴系统总论与淋巴管道"
  },
  "淋巴干": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "（三）淋巴干"
+  "note": "wiki/concepts/结构-脉管/064_淋巴系统总论与淋巴管道.md",
+  "heading": "（3）淋巴干（lymphatic trunk）——全身共 9 条"
+ },
+ "胸骨旁淋巴结": {
+  "note": "wiki/exam/05_脉管系统_思考题.md",
+  "heading": "第2题 在体表可扪及的淋巴结有哪些？若发生肿大有何临床意义？"
  },
  "支气管肺淋巴结": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "（三）胸部的淋巴管和淋巴结"
+  "note": "wiki/concepts/结构-脉管/074_胸部的淋巴结.md",
+  "heading": "2. 胸腔脏器的淋巴结（脏淋巴结，课件第 153 页）"
+ },
+ "乳糜池": {
+  "note": "wiki/exam/05_脉管系统_思考题.md",
+  "heading": "第1题 试述胸导管的起始、行程、注入部位及收集范围。"
+ },
+ "肠干": {
+  "note": "wiki/concepts/结构-脉管/075_腹部的淋巴结.md",
+  "heading": "2. 腹腔脏器淋巴结总表（成对 vs 不成对）"
  },
  "淋巴小结": {
   "note": "wiki/exam/05_脉管系统_思考题.md",
   "heading": "第3题 淋巴结的淋巴小结和副皮质区主要由什么细胞组成？功能如何？"
  },
+ "髂内淋巴结": {
+  "note": "wiki/concepts/结构-内脏1/027_直肠.md",
+  "heading": "4. 血管神经支配"
+ },
+ "髂外淋巴结": {
+  "note": "wiki/concepts/结构-内脏2-JG/041_子宫.md",
+  "heading": "5. 血管、淋巴与神经"
+ },
  "腹股沟浅淋巴结": {
+  "note": "wiki/concepts/结构-脉管/076_盆部与下肢的淋巴结.md",
+  "heading": "4. 临床联系"
+ },
+ "腰淋巴结": {
+  "note": "wiki/concepts/结构-脉管/075_腹部的淋巴结.md",
+  "heading": "1. 腹壁淋巴结（含腹后壁腰淋巴结）"
+ },
+ "腹腔淋巴结": {
+  "note": "raw/人体结构学 第2版_转换稿.md",
+  "heading": "（四）腹部的淋巴管和淋巴结"
+ },
+ "肠系膜上淋巴结": {
+  "note": "raw/人体结构学 第2版_转换稿.md",
+  "heading": "（四）腹部的淋巴管和淋巴结"
+ },
+ "肠系膜下淋巴结": {
+  "note": "raw/人体结构学 第2版_转换稿.md",
+  "heading": "（四）腹部的淋巴管和淋巴结"
+ },
+ "腹腔干": {
+  "note": "wiki/concepts/结构-脉管/033_腹腔干.md",
+  "heading": "腹腔干"
+ },
+ "下颌下淋巴结": {
   "note": "wiki/exam/05_脉管系统_思考题.md",
   "heading": "第2题 在体表可扪及的淋巴结有哪些？若发生肿大有何临床意义？"
  },
- "腹腔干": {
+ "外侧淋巴结": {
   "note": "raw/结构-脉管_转换稿.md",
-  "heading": "腹腔干celiac trunk"
+  "heading": "上肢的淋巴结"
  },
  "腹股沟深淋巴结": {
   "note": "raw/人体结构学 第2版_转换稿.md",
   "heading": "（六）下肢的淋巴管和淋巴结"
  },
+ "髂总淋巴结": {
+  "note": "raw/结构-脉管_转换稿.md",
+  "heading": "盆部的淋巴结"
+ },
+ "锁骨上淋巴结": {
+  "note": "wiki/concepts/结构-脉管/065_右淋巴导管.md",
+  "heading": "3. 功能意义与临床联系"
+ },
+ "肺门淋巴结": {
+  "note": "raw/结构-脉管_转换稿.md",
+  "heading": "胸腔脏器的淋巴结"
+ },
+ "旋髂深动脉": {
+  "note": "wiki/concepts/结构-脉管/039_髂外动脉.md",
+  "heading": "1. 主要分支与吻合"
+ },
+ "脾切迹": {
+  "note": "raw/人体结构学 第2版_转换稿.md",
+  "heading": "（二）脾"
+ },
  "腘动脉": {
-  "note": "wiki/concepts/结构-运动/098_下肢肌.md",
-  "heading": "1.9 教材补充：下肢的局部记载——四组结构"
+  "note": "wiki/concepts/结构-脉管/041_腘动脉与胫前动脉.md",
+  "heading": "腘动脉与胫前动脉"
+ },
+ "腘静脉": {
+  "note": "wiki/concepts/结构-脉管/057_下肢的静脉.md",
+  "heading": "1. 深静脉与浅静脉回流系统（课件第 110 页）"
  },
  "胫后动脉": {
-  "note": "raw/结构-脉管_转换稿.md",
-  "heading": "胫后动脉posterior tibial artery"
+  "note": "wiki/concepts/结构-脉管/042_胫后动脉.md",
+  "heading": "胫后动脉"
+ },
+ "闭孔动脉": {
+  "note": "wiki/concepts/结构-内脏2-JG/022_膀胱.md",
+  "heading": "5. 血管神经支配"
+ },
+ "旋股内侧动脉": {
+  "note": "wiki/concepts/结构-脉管/040_股动脉.md",
+  "heading": "4. 功能意义与临床联系（教材 第 208 页／印刷页 191 临床链接）"
+ },
+ "足背动脉": {
+  "note": "wiki/concepts/结构-脉管/041_腘动脉与胫前动脉.md",
+  "heading": "1. 腘动脉、胫前动脉与足背动脉行程与分布"
+ },
+ "腓动脉": {
+  "note": "wiki/concepts/结构-脉管/042_胫后动脉.md",
+  "heading": "3. 功能意义与临床联系"
  },
  "胫前动脉": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "6. 下肢的动脉"
+  "note": "wiki/concepts/结构-脉管/041_腘动脉与胫前动脉.md",
+  "heading": "腘动脉与胫前动脉"
+ },
+ "腹壁下动脉": {
+  "note": "wiki/concepts/结构-运动/096_腹股沟疝.md",
+  "heading": "2.1 教材补充：斜疝与直疝的解剖学依据（教材未展开）"
+ },
+ "肾上腺上动脉": {
+  "note": "wiki/concepts/结构-脉管/031_腹主动脉.md",
+  "heading": "（1）壁支"
  },
  "肝总动脉": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "2. 上肢的动脉"
+  "note": "wiki/concepts/结构-脉管/033_腹腔干.md",
+  "heading": "1. 腹腔干三级分支与营养范围全表"
  },
  "脾动脉": {
   "note": "wiki/concepts/结构-内脏1/019_胃.md",
@@ -2623,24 +3039,48 @@
   "note": "raw/人体结构学 第2版_转换稿.md",
   "heading": "2. 上肢的动脉"
  },
+ "卵巢动脉": {
+  "note": "wiki/concepts/结构-脉管/031_腹主动脉.md",
+  "heading": "3. 功能意义与临床联系"
+ },
  "直肠上动脉": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "2. 上肢的动脉"
+  "note": "wiki/concepts/结构-脉管/035_肠系膜下动脉.md",
+  "heading": "1. 三大主要分支与分布范围"
  },
  "右结肠动脉": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "2. 上肢的动脉"
+  "note": "wiki/concepts/结构-脉管/034_肠系膜上动脉.md",
+  "heading": "2. 主要分支与供血范围全表"
  },
  "左结肠动脉": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "2. 上肢的动脉"
+  "note": "wiki/exam/05_脉管系统_思考题.md",
+  "heading": "第7题 试述颈外动脉、腹腔干、肠系膜上、下动脉的主要分支及供血范围。"
  },
  "中结肠动脉": {
   "note": "raw/人体结构学 第2版_转换稿.md",
   "heading": "2. 上肢的动脉"
  },
+ "阑尾动脉": {
+  "note": "wiki/concepts/结构-脉管/034_肠系膜上动脉.md",
+  "heading": "4. 功能意义与临床联系"
+ },
+ "旋股外侧动脉": {
+  "note": "wiki/concepts/结构-脉管/040_股动脉.md",
+  "heading": "2. 主要分支与分布（教材 第 207 页 + 课件第 82 页）"
+ },
+ "肾上腺下动脉": {
+  "note": "wiki/concepts/结构-脉管/031_腹主动脉.md",
+  "heading": "（2）成对脏支（3 对）"
+ },
  "肾上腺中动脉": {
-  "note": "raw/人体结构学 第2版_转换稿.md",
-  "heading": "2. 上肢的动脉"
+  "note": "wiki/concepts/结构-脉管/031_腹主动脉.md",
+  "heading": "（2）成对脏支（3 对）"
+ },
+ "肛动脉": {
+  "note": "wiki/concepts/结构-脉管/038_阴部内动脉.md",
+  "heading": "2. 主要分支与分布（课件第 79 页）"
+ },
+ "会阴动脉": {
+  "note": "wiki/concepts/结构-内脏2-JG/053_会阴.md",
+  "heading": "5. 会阴的血管、淋巴与神经"
  }
 }

@@ -54,7 +54,6 @@ export default function LibraryView({ go }) {
         <p className="label mb-1.5">题库</p>
         <h1 className="text-[34px] font-semibold tracking-[-0.02em]">
           {meta?.total} 道真题
-          <span className="text-ink-900/40"> · 每道都挂着 Obsidian 证据</span>
         </h1>
       </section>
 
